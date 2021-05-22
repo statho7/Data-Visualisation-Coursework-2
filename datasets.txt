@@ -1,0 +1,19 @@
+https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en
+
+https://ec.europa.eu/eurostat/databrowser/view/tps00176/default/table?lang=en
+
+https://ec.europa.eu/eurostat/databrowser/view/tps00177/default/table?lang=en
+
+https://ec.europa.eu/eurostat/databrowser/view/tps00204/default/table?lang=en
+
+https://ec.europa.eu/eurostat/databrowser/view/tps00029/default/table?lang=en
+
+I will combine all these datasets to create a single csv file that will be used for the first of the 2 visualisations I will create
+
+
+
+
+
+______________________________________________
+
+https://ec.europa.eu/eurostat/databrowser/view/tps00010/default/table?lang=en
