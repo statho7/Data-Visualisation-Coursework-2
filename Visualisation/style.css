@@ -1,0 +1,20 @@
+.dashboard{
+    background-color: #003B46;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+}
+
+body{
+    background-color: #66A5AD !important;
+    height: 100vh;
+    width: 100%;
+    padding: 0 !important;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* color: #C4DEF6 */
