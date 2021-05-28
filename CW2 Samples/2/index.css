@@ -1,0 +1,144 @@
+.center {
+  padding-bottom: 100px;
+}
+
+.tick {
+  font-family: 'Old Standard TT', serif;
+}
+
+#map {
+  padding-left: 170px;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  text-align: center;
+  font-size: 4em;
+}
+
+hr {
+  border: 0;
+   height: 3px;
+   background: #333;
+   background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.container {
+  display:flex;
+  justify-content: center;
+
+}
+
+.top {
+  padding-bottom:2em;
+}
+.paragraphs {
+  width:70%;
+  display:flex;
+  flex-direction: column;
+}
+
+
+h3 {
+  font-family: 'Oswald', sans-serif;
+  text-align; center;
+}
+
+h2 {
+  padding-top: 2em;
+  font-family: 'Abril Fatface', cursive;
+
+}
+
+p {
+  font-family: 'Oswald', sans-serif;
+}
+
+#rating {
+  width:40%;
+  padding-top:1em;
+
+
+}
+
+output{
+  font-family: 'Oswald', sans-serif;
+  font-size: 2em;
+
+}
+
+#sliderVal{
+  font-family: 'Abril Fatface', cursive;
+}
+
+.threelines {
+  margin-top: .5em;
+  margin-bottom: -6em;
+  justify-content: flex-start;
+  padding-left: 9em;
+}
+
+.hexing {
+  justify-content: flex-start;
+  padding: 3em;
+}
+
+.align {
+  text-align: left;
+  padding-left: 9em;
+}
+
+.heat {
+  padding-left: 4em;
+  margin-top:2em;
+  margin-bottom: -8em;
+}
+
+#un {
+  margin-top:-1em;
+  margin-bottom:-5em;
+}
+
+/* .lilcontainer h3 {
+  font-family: 'Old Standard TT', serif;
+} */
+
+
+#nameofcounty, #exception, #pop, #murder, #percentage {
+  font-family: 'Oswald', sans-serif;
+}
+
+#container {
+  padding-left:4em;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.countylines {
+  display:flex;
+  justify-content: center;
+  margin-top:0;
+}
+
+.lilcontainer {
+  padding-left:14em;
+  margin-bottom: -5em;
+}
+
+.flexing {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  padding-right:10em;
+}
+
+.flexing h3 {
+  margin:.5px;
+  font-family: 'Old Standard TT', serif;
+
+}
+
+#vis {
+  padding-right:200px;
+  padding-top:60px;
+}
