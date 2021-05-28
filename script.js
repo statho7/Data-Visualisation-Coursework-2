@@ -1,3 +1,118 @@
+let births = []
+let deaths = []
+let population = []
+let pop_0_14 = []
+let pop_15_24 = []
+let pop_25_49 = []
+let pop_50_64 = []
+let pop_65_79 = []
+let pop_80 = []
+
+fetch('/Datasets/births.json')
+.then(response => {
+   return response.json();
+})
+.then(data => births = data);
+
+fetch('/Datasets/deaths.json')
+.then(response => {
+   return response.json();
+})
+.then(data => deaths = data);
+
+fetch('/Datasets/population.json')
+.then(response => {
+   return response.json();
+})
+.then(data => population = data);
+
+fetch('/Datasets/pop_0_14.json')
+.then(response => {
+   return response.json();
+})
+.then(data => pop_0_14 = data);
+
+fetch('/Datasets/pop_15_24.json')
+.then(response => {
+   return response.json();
+})
+.then(data => pop_15_24 = data);
+
+fetch('/Datasets/pop_25_49.json')
+.then(response => {
+   return response.json();
+})
+.then(data => pop_25_49 = data);
+
+fetch('/Datasets/pop_50_64.json')
+.then(response => {
+   return response.json();
+})
+.then(data => pop_50_64 = data);
+
+fetch('/Datasets/pop_65_79.json')
+.then(response => {
+   return response.json();
+})
+.then(data => pop_65_79 = data);
+
+fetch('/Datasets/pop_80.json')
+.then(response => {
+   return response.json();
+})
+.then(data => pop_80 = data);
+
+
+setTimeout(() => {
+  console.log(births); 
+  console.log(deaths);  
+  console.log(population); 
+  console.log(pop_0_14); 
+  console.log(pop_15_24);  
+  console.log(pop_25_49); 
+  console.log(pop_50_64); 
+  console.log(pop_65_79);  
+  console.log(pop_80);  
+}, 1000);
+
+
+
+// function getdataset(url, dataset_list) {
+//   return d3.json(url)
+//   .then(function(data){
+//     // Code from your callback goes here...
+//     dataset_list = data
+//     console.log(dataset_list)
+//     return dataset_list;
+//   });
+// }
+
+// births = getdataset('/Datasets/births.json', births);
+// deaths = getdataset('/Datasets/deaths.json', deaths);
+// population = getdataset('/Datasets/population.json', population);
+// pop_0_14 = getdataset('/Datasets/pop_0_14.json', pop_0_14);
+// pop_15_24 = getdataset('/Datasets/pop_15_24.json', pop_15_24);
+// pop_25_49 = getdataset('/Datasets/pop_25_49.json', pop_25_49);
+// pop_50_64 = getdataset('/Datasets/pop_50_64.json', pop_50_64);
+// pop_65_79 = getdataset('/Datasets/pop_65_79.json', pop_65_79);
+// pop_80 = getdataset('/Datasets/pop_80.json', pop_80); 
+
+// // getdataset('/Datasets/births.json', births);
+// // getdataset('/Datasets/deaths.json', deaths);
+// // getdataset('/Datasets/population.json', population);
+// // getdataset('/Datasets/pop_0_14.json', pop_0_14);
+// // getdataset('/Datasets/pop_15_24.json', pop_15_24);
+// // getdataset('/Datasets/pop_25_49.json', pop_25_49);
+// // getdataset('/Datasets/pop_50_64.json', pop_50_64);
+// // getdataset('/Datasets/pop_65_79.json', pop_65_79);
+// // getdataset('/Datasets/pop_80.json', pop_80);
+
+// setTimeout(() => {
+//   console.log(births); 
+//   console.log(deaths);  
+//   console.log(population);  
+// }, 1000);
+
 // const sample = [
 //     {
 //       language: 'Rust',
@@ -202,14 +317,25 @@
 // .attr('text-anchor', 'start')
 // .text('Source: Stack Overflow, 2018')
 
-births = []
-d3.json("/births.json")
-  .then(function(data, births){
-    // Code from your callback goes here...
-    births = data
-    console.log(births);
-  });
+// births = []
 
+// setTimeout(() => {
+//   births = d3.json("/Datasets/births.json")
+//   .then(function(data){
+//     // Code from your callback goes here...
+//     console.log(births);
+//     return data
+//   });
+  
+// }, 500);
+
+// setTimeout(() => {
+//   console.log(births);
+// }, 2000);
+
+
+// await births = currentloginid();
+// console.log(await currentloginid());
 // d3.json(url, function(error, data){
 //   // births = data
 //   console.log(data);
