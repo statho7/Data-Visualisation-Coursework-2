@@ -64,17 +64,182 @@ fetch('/Datasets/pop_80.json')
 
 
 setTimeout(() => {
-  year2009 = births[0].year2009;
-  console.log(year2009); 
-  console.log(deaths);  
-  console.log(population); 
-  console.log(pop_0_14); 
-  console.log(pop_15_24);  
-  console.log(pop_25_49); 
-  console.log(pop_50_64); 
-  console.log(pop_65_79);  
-  console.log(pop_80);  
-}, 20);
+  year2009 = population[0].year2009;
+  // var bins = histogram(year2009);
+  console.log(year2009);
+  console.log(deaths);
+  console.log(population);
+  console.log(pop_0_14);
+  console.log(pop_15_24);
+  console.log(pop_25_49);
+  console.log(pop_50_64);
+  console.log(pop_65_79);
+  console.log(pop_80);
+// }, 200);
+
+data = year2009.slice(1,year2009.length);
+
+let width = 800;
+const height = 800;
+
+const margin = {
+  top: 10,
+  left: 50,
+  right: 10,
+  bottom: 10
+}
+
+// create the element where our visualisation will go
+let svg = d3.select("#dashboard")
+  .append('svg')
+  .attr('width', width)
+  .attr('height', height);
+
+// x-axis group
+svg.append('g')
+  .attr('class', 'x axis')
+  .attr('transform', `translate(0,${height-margin.top})`);
+
+// y-axis group
+svg.append('g')
+  .attr('class', 'y axis')
+  .attr('transform', `translate(${margin.left},0)`);
+
+// xscale - bands for bars, with spacing
+let xScale = d3.scaleBand()
+  .range([margin.left, width - margin.right])
+  .paddingInner(0.1)
+  .paddingOuter(0.2);
+
+// yscale - linear
+let yScale = d3.scaleLinear()
+  .range([height-margin.top, margin.bottom]);
+
+let xaxis = d3.axisBottom(xScale);
+let yaxis = d3.axisLeft(yScale);
+
+// how many data items have we added? Also how many times update() has run
+let count = 1;
+
+function update() {
+
+  // get the data for this iteration (data[0:count])
+  iter_data = data.slice(0, count);
+  
+  // increase the size of the graphic (optional)
+  width = width + 15;
+
+
+  // console.log(iter_data);
+  
+  // increase iteration count
+  count++;
+  // if we've got to the end of the data, stop running
+  if(count > data.length) {
+      console.log('stopping');
+      t.stop();
+  }
+
+  // update the width (if necessary)
+  svg.transition()
+      .duration(100)
+      .attr('width', width);
+
+  // update the domains for the scales
+  yScale.domain([0, d3.max(iter_data, (d) => d.population)]);
+  xScale.domain(iter_data.map((d) => d.country))
+      .range([margin.left, width - margin.right]);
+  
+  // add bars to the visualisation for each data element
+  svg.selectAll('rect')
+      .data(iter_data)
+      .join((enter) => {
+          enter.append('rect')
+              // .attr('fill', 'url("/flags/Greece.jpg")')
+              // .attr('background-image', 'url("/flags/Greece.jpg")' )
+              // .attr('background-color', '#cccccc' )
+              // .attr('border-radius', '5px')
+              .attr('width', xScale.bandwidth)
+              .attr('y', height - margin.top)
+              .attr('height', 0)
+              .attr('x', (d) => xScale(d.country) )
+              .transition()
+              .duration(100)
+              .attr('y', (d) => yScale(d.population))
+              .attr('height', (d) => height - margin.top - yScale(d.population));
+      },
+      (update) => {
+          update
+              .transition()
+              .duration(100)
+              .attr('y', (d) => yScale(d.population))
+              .attr('width', xScale.bandwidth)
+              .attr('height', (d) => height - margin.top - yScale(d.population))
+              .attr('x', (d) => xScale(d.country) );
+      },
+      (exit) => {
+          exit
+              .transition()
+              .duration(100)
+              .attr('y', height-margin.top)
+              .attr('height', 0)
+              .remove();
+      });
+
+  svg.selectAll('.label')
+      .data(iter_data)
+      .join(
+          (enter) => {
+              enter.append('text')
+                  .attr('class', 'label')
+                  .attr('fill', 'white')
+                  .attr('text-anchor', 'middle')
+                  .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
+                  .attr('y', height - margin.top)
+                  .transition()
+                  .duration(100)
+                  .attr('y', (d) => yScale(d.population) + 15)
+                  .text((d) => d.population)
+          },
+          (update) => {
+              update
+                  .transition()
+                  .duration(100)
+                  .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
+                  .attr('y', (d) => yScale(d.population) + 15)
+                  .text((d) => d.population)
+          },
+          (exit) => {
+              exit.transition()
+                  .duration(100)
+                  .attr('y', height - margin.top)
+                  .remove();
+          }
+      );
+
+  svg.select('.x.axis')
+      .transition()
+      .duration(100)
+      .call(xaxis);
+
+  svg.select('.y.axis')
+      .transition()
+      .duration(100)
+      .call(yaxis);
+}
+// run the update function once
+update();
+
+// run the update function once every 2 seconds
+let t = d3.interval(update, 150);
+}, 2500);
+
+
+
+
+
+
+
 
 
 // const sample = [

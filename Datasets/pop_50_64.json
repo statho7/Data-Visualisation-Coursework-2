@@ -1,1 +1,1322 @@
-[{"year2009": [{"country": "European Union", "pop_50_64": 18.915999999999997}, {"country": "Belgium", "pop_50_64": 19.0}, {"country": "Bulgaria", "pop_50_64": 21.3}, {"country": "Czechia", "pop_50_64": 21.184}, {"country": "Denmark", "pop_50_64": 19.8}, {"country": "Germany", "pop_50_64": 18.9}, {"country": "Estonia", "pop_50_64": 18.816}, {"country": "Ireland", "pop_50_64": 15.484}, {"country": "Greece", "pop_50_64": 18.0}, {"country": "Spain", "pop_50_64": 17.1}, {"country": "France", "pop_50_64": 18.9}, {"country": "Croatia", "pop_50_64": 20.0}, {"country": "Italy", "pop_50_64": 18.884}, {"country": "Cyprus", "pop_50_64": 17.2}, {"country": "Latvia", "pop_50_64": 18.3}, {"country": "Lithuania", "pop_50_64": 17.5}, {"country": "Luxembourg", "pop_50_64": 17.516}, {"country": "Hungary", "pop_50_64": 20.5}, {"country": "Malta", "pop_50_64": 21.8}, {"country": "Netherlands", "pop_50_64": 19.9}, {"country": "Austria", "pop_50_64": 18.0}, {"country": "Poland", "pop_50_64": 20.215999999999998}, {"country": "Portugal", "pop_50_64": 18.616}, {"country": "Romania", "pop_50_64": 19.984}, {"country": "Slovenia", "pop_50_64": 19.984}, {"country": "Slovakia", "pop_50_64": 19.3}, {"country": "Finland", "pop_50_64": 21.6}, {"country": "Sweden", "pop_50_64": 19.415999999999997}, {"country": "United Kingdom", "pop_50_64": 18.0}]}, {"year2010": [{"country": "European Union", "pop_50_64": 19.184}, {"country": "Belgium", "pop_50_64": 19.3}, {"country": "Bulgaria", "pop_50_64": 21.384}, {"country": "Czechia", "pop_50_64": 20.9}, {"country": "Denmark", "pop_50_64": 19.616}, {"country": "Germany", "pop_50_64": 19.284000000000002}, {"country": "Estonia", "pop_50_64": 19.215999999999998}, {"country": "Ireland", "pop_50_64": 15.8}, {"country": "Greece", "pop_50_64": 18.3}, {"country": "Spain", "pop_50_64": 17.4}, {"country": "France", "pop_50_64": 19.116}, {"country": "Croatia", "pop_50_64": 20.467}, {"country": "Italy", "pop_50_64": 19.1}, {"country": "Cyprus", "pop_50_64": 17.415999999999997}, {"country": "Latvia", "pop_50_64": 18.816}, {"country": "Lithuania", "pop_50_64": 18.184}, {"country": "Luxembourg", "pop_50_64": 17.816}, {"country": "Hungary", "pop_50_64": 20.316}, {"country": "Malta", "pop_50_64": 21.7}, {"country": "Netherlands", "pop_50_64": 20.1}, {"country": "Austria", "pop_50_64": 18.3}, {"country": "Poland", "pop_50_64": 21.0}, {"country": "Portugal", "pop_50_64": 18.816}, {"country": "Romania", "pop_50_64": 20.0}, {"country": "Slovenia", "pop_50_64": 20.316}, {"country": "Slovakia", "pop_50_64": 19.584000000000003}, {"country": "Finland", "pop_50_64": 21.715999999999998}, {"country": "Sweden", "pop_50_64": 19.1}, {"country": "United Kingdom", "pop_50_64": 18.116}]}, {"year2011": [{"country": "European Union", "pop_50_64": 19.5}, {"country": "Belgium", "pop_50_64": 19.4}, {"country": "Bulgaria", "pop_50_64": 21.516}, {"country": "Czechia", "pop_50_64": 20.784000000000002}, {"country": "Denmark", "pop_50_64": 19.4}, {"country": "Germany", "pop_50_64": 20.1}, {"country": "Estonia", "pop_50_64": 19.616}, {"country": "Ireland", "pop_50_64": 15.984}, {"country": "Greece", "pop_50_64": 18.5}, {"country": "Spain", "pop_50_64": 17.7}, {"country": "France", "pop_50_64": 19.384}, {"country": "Croatia", "pop_50_64": 21.0}, {"country": "Italy", "pop_50_64": 19.484}, {"country": "Cyprus", "pop_50_64": 17.6}, {"country": "Latvia", "pop_50_64": 19.5}, {"country": "Lithuania", "pop_50_64": 18.984}, {"country": "Luxembourg", "pop_50_64": 18.116}, {"country": "Hungary", "pop_50_64": 20.4}, {"country": "Malta", "pop_50_64": 21.8}, {"country": "Netherlands", "pop_50_64": 20.366999999999997}, {"country": "Austria", "pop_50_64": 18.9}, {"country": "Poland", "pop_50_64": 21.4}, {"country": "Portugal", "pop_50_64": 19.1}, {"country": "Romania", "pop_50_64": 20.1}, {"country": "Slovenia", "pop_50_64": 20.9}, {"country": "Slovakia", "pop_50_64": 19.9}, {"country": "Finland", "pop_50_64": 21.6}, {"country": "Sweden", "pop_50_64": 18.8}, {"country": "United Kingdom", "pop_50_64": 18.184}]}, {"year2012": [{"country": "European Union", "pop_50_64": 19.6}, {"country": "Belgium", "pop_50_64": 19.484}, {"country": "Bulgaria", "pop_50_64": 21.3}, {"country": "Czechia", "pop_50_64": 20.4}, {"country": "Denmark", "pop_50_64": 19.2}, {"country": "Germany", "pop_50_64": 20.7}, {"country": "Estonia", "pop_50_64": 19.9}, {"country": "Ireland", "pop_50_64": 16.2}, {"country": "Greece", "pop_50_64": 18.616}, {"country": "Spain", "pop_50_64": 18.0}, {"country": "France", "pop_50_64": 19.4}, {"country": "Croatia", "pop_50_64": 21.2}, {"country": "Italy", "pop_50_64": 19.484}, {"country": "Cyprus", "pop_50_64": 17.7}, {"country": "Latvia", "pop_50_64": 20.0}, {"country": "Lithuania", "pop_50_64": 19.684}, {"country": "Luxembourg", "pop_50_64": 18.215999999999998}, {"country": "Hungary", "pop_50_64": 21.0}, {"country": "Malta", "pop_50_64": 21.6}, {"country": "Netherlands", "pop_50_64": 20.316}, {"country": "Austria", "pop_50_64": 19.384}, {"country": "Poland", "pop_50_64": 21.516}, {"country": "Portugal", "pop_50_64": 19.415999999999997}, {"country": "Romania", "pop_50_64": 20.016}, {"country": "Slovenia", "pop_50_64": 21.2}, {"country": "Slovakia", "pop_50_64": 20.184}, {"country": "Finland", "pop_50_64": 21.284000000000002}, {"country": "Sweden", "pop_50_64": 18.5}, {"country": "United Kingdom", "pop_50_64": 18.215999999999998}]}, {"year2013": [{"country": "European Union", "pop_50_64": 19.7}, {"country": "Belgium", "pop_50_64": 19.6}, {"country": "Bulgaria", "pop_50_64": 21.2}, {"country": "Czechia", "pop_50_64": 20.0}, {"country": "Denmark", "pop_50_64": 19.1}, {"country": "Germany", "pop_50_64": 21.184}, {"country": "Estonia", "pop_50_64": 20.0}, {"country": "Ireland", "pop_50_64": 16.415999999999997}, {"country": "Greece", "pop_50_64": 18.784000000000002}, {"country": "Spain", "pop_50_64": 18.384}, {"country": "France", "pop_50_64": 19.316}, {"country": "Croatia", "pop_50_64": 21.316}, {"country": "Italy", "pop_50_64": 19.684}, {"country": "Cyprus", "pop_50_64": 17.884}, {"country": "Latvia", "pop_50_64": 20.4}, {"country": "Lithuania", "pop_50_64": 20.215999999999998}, {"country": "Luxembourg", "pop_50_64": 18.384}, {"country": "Hungary", "pop_50_64": 20.8}, {"country": "Malta", "pop_50_64": 21.3}, {"country": "Netherlands", "pop_50_64": 20.3}, {"country": "Austria", "pop_50_64": 19.684}, {"country": "Poland", "pop_50_64": 21.4}, {"country": "Portugal", "pop_50_64": 19.784000000000002}, {"country": "Romania", "pop_50_64": 19.984}, {"country": "Slovenia", "pop_50_64": 21.384}, {"country": "Slovakia", "pop_50_64": 20.3}, {"country": "Finland", "pop_50_64": 21.0}, {"country": "Sweden", "pop_50_64": 18.3}, {"country": "United Kingdom", "pop_50_64": 18.1}]}, {"year2014": [{"country": "European Union", "pop_50_64": 19.9}, {"country": "Belgium", "pop_50_64": 19.7}, {"country": "Bulgaria", "pop_50_64": 21.116}, {"country": "Czechia", "pop_50_64": 19.816}, {"country": "Denmark", "pop_50_64": 19.1}, {"country": "Germany", "pop_50_64": 21.684}, {"country": "Estonia", "pop_50_64": 19.984}, {"country": "Ireland", "pop_50_64": 16.6}, {"country": "Greece", "pop_50_64": 19.0}, {"country": "Spain", "pop_50_64": 18.715999999999998}, {"country": "France", "pop_50_64": 19.3}, {"country": "Croatia", "pop_50_64": 21.384}, {"country": "Italy", "pop_50_64": 19.9}, {"country": "Cyprus", "pop_50_64": 18.084000000000003}, {"country": "Latvia", "pop_50_64": 20.584000000000003}, {"country": "Lithuania", "pop_50_64": 20.584000000000003}, {"country": "Luxembourg", "pop_50_64": 18.715999999999998}, {"country": "Hungary", "pop_50_64": 20.5}, {"country": "Malta", "pop_50_64": 20.8}, {"country": "Netherlands", "pop_50_64": 20.4}, {"country": "Austria", "pop_50_64": 20.0}, {"country": "Poland", "pop_50_64": 21.3}, {"country": "Portugal", "pop_50_64": 20.0}, {"country": "Romania", "pop_50_64": 19.784000000000002}, {"country": "Slovenia", "pop_50_64": 21.5}, {"country": "Slovakia", "pop_50_64": 20.316}, {"country": "Finland", "pop_50_64": 20.7}, {"country": "Sweden", "pop_50_64": 18.084000000000003}, {"country": "United Kingdom", "pop_50_64": 18.215999999999998}]}, {"year2015": [{"country": "European Union", "pop_50_64": 19.984}, {"country": "Belgium", "pop_50_64": 19.9}, {"country": "Bulgaria", "pop_50_64": 20.884}, {"country": "Czechia", "pop_50_64": 19.684}, {"country": "Denmark", "pop_50_64": 19.215999999999998}, {"country": "Germany", "pop_50_64": 22.0}, {"country": "Estonia", "pop_50_64": 19.8}, {"country": "Ireland", "pop_50_64": 16.715999999999998}, {"country": "Greece", "pop_50_64": 19.215999999999998}, {"country": "Spain", "pop_50_64": 19.2}, {"country": "France", "pop_50_64": 19.2}, {"country": "Croatia", "pop_50_64": 21.384}, {"country": "Italy", "pop_50_64": 20.2}, {"country": "Cyprus", "pop_50_64": 18.0}, {"country": "Latvia", "pop_50_64": 20.6}, {"country": "Lithuania", "pop_50_64": 20.816}, {"country": "Luxembourg", "pop_50_64": 18.884}, {"country": "Hungary", "pop_50_64": 20.3}, {"country": "Malta", "pop_50_64": 20.3}, {"country": "Netherlands", "pop_50_64": 20.533}, {"country": "Austria", "pop_50_64": 20.3}, {"country": "Poland", "pop_50_64": 21.116}, {"country": "Portugal", "pop_50_64": 20.184}, {"country": "Romania", "pop_50_64": 19.3}, {"country": "Slovenia", "pop_50_64": 21.6}, {"country": "Slovakia", "pop_50_64": 20.4}, {"country": "Finland", "pop_50_64": 20.484}, {"country": "Sweden", "pop_50_64": 18.1}, {"country": "United Kingdom", "pop_50_64": 18.384}]}, {"year2016": [{"country": "European Union", "pop_50_64": 20.084000000000003}, {"country": "Belgium", "pop_50_64": 19.984}, {"country": "Bulgaria", "pop_50_64": 20.584000000000003}, {"country": "Czechia", "pop_50_64": 19.5}, {"country": "Denmark", "pop_50_64": 19.3}, {"country": "Germany", "pop_50_64": 22.1}, {"country": "Estonia", "pop_50_64": 19.7}, {"country": "Ireland", "pop_50_64": 16.9}, {"country": "Greece", "pop_50_64": 19.415999999999997}, {"country": "Spain", "pop_50_64": 19.616}, {"country": "France", "pop_50_64": 19.2}, {"country": "Croatia", "pop_50_64": 21.5}, {"country": "Italy", "pop_50_64": 20.584000000000003}, {"country": "Cyprus", "pop_50_64": 18.016}, {"country": "Latvia", "pop_50_64": 20.715999999999998}, {"country": "Lithuania", "pop_50_64": 21.084000000000003}, {"country": "Luxembourg", "pop_50_64": 19.166999999999998}, {"country": "Hungary", "pop_50_64": 20.0}, {"country": "Malta", "pop_50_64": 19.784000000000002}, {"country": "Netherlands", "pop_50_64": 20.6}, {"country": "Austria", "pop_50_64": 20.616}, {"country": "Poland", "pop_50_64": 20.816}, {"country": "Portugal", "pop_50_64": 20.415999999999997}, {"country": "Romania", "pop_50_64": 18.915999999999997}, {"country": "Slovenia", "pop_50_64": 21.715999999999998}, {"country": "Slovakia", "pop_50_64": 20.4}, {"country": "Finland", "pop_50_64": 20.3}, {"country": "Sweden", "pop_50_64": 18.1}, {"country": "United Kingdom", "pop_50_64": 18.516}]}, {"year2017": [{"country": "European Union", "pop_50_64": 20.2}, {"country": "Belgium", "pop_50_64": 20.1}, {"country": "Bulgaria", "pop_50_64": 20.484}, {"country": "Czechia", "pop_50_64": 19.284000000000002}, {"country": "Denmark", "pop_50_64": 19.516}, {"country": "Germany", "pop_50_64": 22.4}, {"country": "Estonia", "pop_50_64": 19.584000000000003}, {"country": "Ireland", "pop_50_64": 17.0}, {"country": "Greece", "pop_50_64": 19.715999999999998}, {"country": "Spain", "pop_50_64": 20.0}, {"country": "France", "pop_50_64": 19.2}, {"country": "Croatia", "pop_50_64": 21.616}, {"country": "Italy", "pop_50_64": 21.016}, {"country": "Cyprus", "pop_50_64": 18.0}, {"country": "Latvia", "pop_50_64": 20.684}, {"country": "Lithuania", "pop_50_64": 21.4}, {"country": "Luxembourg", "pop_50_64": 19.5}, {"country": "Hungary", "pop_50_64": 19.816}, {"country": "Malta", "pop_50_64": 19.316}, {"country": "Netherlands", "pop_50_64": 20.7}, {"country": "Austria", "pop_50_64": 21.0}, {"country": "Poland", "pop_50_64": 20.415999999999997}, {"country": "Portugal", "pop_50_64": 20.616}, {"country": "Romania", "pop_50_64": 18.584000000000003}, {"country": "Slovenia", "pop_50_64": 21.8}, {"country": "Slovakia", "pop_50_64": 20.2}, {"country": "Finland", "pop_50_64": 20.2}, {"country": "Sweden", "pop_50_64": 18.1}, {"country": "United Kingdom", "pop_50_64": 18.715999999999998}]}, {"year2018": [{"country": "European Union", "pop_50_64": 20.4}, {"country": "Belgium", "pop_50_64": 20.1}, {"country": "Bulgaria", "pop_50_64": 20.316}, {"country": "Czechia", "pop_50_64": 19.016}, {"country": "Denmark", "pop_50_64": 19.6}, {"country": "Germany", "pop_50_64": 22.6}, {"country": "Estonia", "pop_50_64": 19.4}, {"country": "Ireland", "pop_50_64": 17.1}, {"country": "Greece", "pop_50_64": 20.0}, {"country": "Spain", "pop_50_64": 20.384}, {"country": "France", "pop_50_64": 19.215999999999998}, {"country": "Croatia", "pop_50_64": 21.684}, {"country": "Italy", "pop_50_64": 21.484}, {"country": "Cyprus", "pop_50_64": 18.0}, {"country": "Latvia", "pop_50_64": 20.784000000000002}, {"country": "Lithuania", "pop_50_64": 21.715999999999998}, {"country": "Luxembourg", "pop_50_64": 19.616}, {"country": "Hungary", "pop_50_64": 19.7}, {"country": "Malta", "pop_50_64": 18.715999999999998}, {"country": "Netherlands", "pop_50_64": 20.8}, {"country": "Austria", "pop_50_64": 21.415999999999997}, {"country": "Poland", "pop_50_64": 20.1}, {"country": "Portugal", "pop_50_64": 20.715999999999998}, {"country": "Romania", "pop_50_64": 19.116}, {"country": "Slovenia", "pop_50_64": 21.8}, {"country": "Slovakia", "pop_50_64": 19.915999999999997}, {"country": "Finland", "pop_50_64": 20.0}, {"country": "Sweden", "pop_50_64": 18.1}, {"country": "United Kingdom", "pop_50_64": 18.915999999999997}]}, {"year2019": [{"country": "European Union", "pop_50_64": 20.5}, {"country": "Belgium", "pop_50_64": 20.1}, {"country": "Bulgaria", "pop_50_64": 20.4}, {"country": "Czechia", "pop_50_64": 18.784000000000002}, {"country": "Denmark", "pop_50_64": 19.616}, {"country": "Germany", "pop_50_64": 22.8}, {"country": "Estonia", "pop_50_64": 19.415999999999997}, {"country": "Ireland", "pop_50_64": 17.2}, {"country": "Greece", "pop_50_64": 20.316}, {"country": "Spain", "pop_50_64": 20.7}, {"country": "France", "pop_50_64": 19.2}, {"country": "Croatia", "pop_50_64": 21.616}, {"country": "Italy", "pop_50_64": 21.884}, {"country": "Cyprus", "pop_50_64": 17.884}, {"country": "Latvia", "pop_50_64": 20.884}, {"country": "Lithuania", "pop_50_64": 21.9}, {"country": "Luxembourg", "pop_50_64": 19.784000000000002}, {"country": "Hungary", "pop_50_64": 19.616}, {"country": "Malta", "pop_50_64": 18.184}, {"country": "Netherlands", "pop_50_64": 20.884}, {"country": "Austria", "pop_50_64": 21.733}, {"country": "Poland", "pop_50_64": 19.684}, {"country": "Portugal", "pop_50_64": 20.915999999999997}, {"country": "Romania", "pop_50_64": 19.666999999999998}, {"country": "Slovenia", "pop_50_64": 21.6}, {"country": "Slovakia", "pop_50_64": 19.715999999999998}, {"country": "Finland", "pop_50_64": 19.884}, {"country": "Sweden", "pop_50_64": 18.1}, {"country": "United Kingdom", "pop_50_64": 19.1}]}]
+[
+	{
+		"year2009": [
+			{
+				"country": "European Union",
+				"pop_50_64": 18.915999999999998
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.0
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 21.3
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 21.184
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.8
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 18.9
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 18.816
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 15.484
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 18.0
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 17.1
+			},
+			{
+				"country": "France",
+				"pop_50_64": 18.9
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 18.884
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 17.2
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 18.3
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 17.5
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 17.516
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 20.5
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 21.8
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 19.9
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 18.0
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 20.215999999999999
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 18.616
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 19.984
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 19.984
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 19.3
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 21.6
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 19.415999999999998
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.0
+			}
+		]
+	},
+	{
+		"year2010": [
+			{
+				"country": "European Union",
+				"pop_50_64": 19.184
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.3
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 21.384
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 20.9
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.616
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 19.284000000000004
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.215999999999999
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 15.8
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 18.3
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 17.4
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.116
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 20.467
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 19.1
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 17.415999999999998
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 18.816
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 18.184
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 17.816
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 20.316
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 21.7
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.1
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 18.3
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 21.0
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 18.816
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 20.316
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 19.584000000000004
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 21.715999999999999
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 19.1
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.116
+			}
+		]
+	},
+	{
+		"year2011": [
+			{
+				"country": "European Union",
+				"pop_50_64": 19.5
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.4
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 21.516
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 20.784000000000004
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.4
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 20.1
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.616
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 15.984
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 18.5
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 17.7
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.384
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.0
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 19.484
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 17.6
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 19.5
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 18.984
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 18.116
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 21.8
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.366999999999999
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 18.9
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 21.4
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 19.1
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 20.1
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 20.9
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 19.9
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 21.6
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.8
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.184
+			}
+		]
+	},
+	{
+		"year2012": [
+			{
+				"country": "European Union",
+				"pop_50_64": 19.6
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.484
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 21.3
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.2
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 20.7
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.9
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 16.2
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 18.616
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 18.0
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.4
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.2
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 19.484
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 17.7
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 19.684
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 18.215999999999999
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 21.0
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 21.6
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.316
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 19.384
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 21.516
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 19.415999999999998
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 20.016
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.2
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 20.184
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 21.284000000000004
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.5
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.215999999999999
+			}
+		]
+	},
+	{
+		"year2013": [
+			{
+				"country": "European Union",
+				"pop_50_64": 19.7
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.6
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 21.2
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.1
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 21.184
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 16.415999999999998
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 18.784000000000004
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 18.384
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.316
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.316
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 19.684
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 17.884
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 20.215999999999999
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 18.384
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 20.8
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 21.3
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.3
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 19.684
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 21.4
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 19.784000000000004
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 19.984
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.384
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 20.3
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 21.0
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.3
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.1
+			}
+		]
+	},
+	{
+		"year2014": [
+			{
+				"country": "European Union",
+				"pop_50_64": 19.9
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.7
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 21.116
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 19.816
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.1
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 21.684
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.984
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 16.6
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 19.0
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 18.715999999999999
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.3
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.384
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 19.9
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 18.084000000000004
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.584000000000004
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 20.584000000000004
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 18.715999999999999
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 20.5
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 20.8
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 21.3
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 19.784000000000004
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.5
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 20.316
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 20.7
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.084000000000004
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.215999999999999
+			}
+		]
+	},
+	{
+		"year2015": [
+			{
+				"country": "European Union",
+				"pop_50_64": 19.984
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.9
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 20.884
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 19.684
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.215999999999999
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 22.0
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.8
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 16.715999999999999
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 19.215999999999999
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 19.2
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.2
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.384
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 20.2
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 18.0
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.6
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 20.816
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 18.884
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 20.3
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 20.3
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.533
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 20.3
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 21.116
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 20.184
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 19.3
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.6
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 20.484
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.1
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.384
+			}
+		]
+	},
+	{
+		"year2016": [
+			{
+				"country": "European Union",
+				"pop_50_64": 20.084000000000004
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 19.984
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 20.584000000000004
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 19.5
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.3
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 22.1
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.7
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 16.9
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 19.415999999999998
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 19.616
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.2
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.5
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 20.584000000000004
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 18.016
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.715999999999999
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 21.084000000000004
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 19.166999999999999
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 19.784000000000004
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.6
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 20.616
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 20.816
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 20.415999999999998
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 18.915999999999998
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.715999999999999
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 20.3
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.1
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.516
+			}
+		]
+	},
+	{
+		"year2017": [
+			{
+				"country": "European Union",
+				"pop_50_64": 20.2
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 20.1
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 20.484
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 19.284000000000004
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.516
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 22.4
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.584000000000004
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 17.0
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 19.715999999999999
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.2
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.616
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 21.016
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 18.0
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.684
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 21.4
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 19.5
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 19.816
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 19.316
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.7
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 21.0
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 20.415999999999998
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 20.616
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 18.584000000000004
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.8
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 20.2
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 20.2
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.1
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.715999999999999
+			}
+		]
+	},
+	{
+		"year2018": [
+			{
+				"country": "European Union",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 20.1
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 20.316
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 19.016
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.6
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 22.6
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.4
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 17.1
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 20.384
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.215999999999999
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.684
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 21.484
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 18.0
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.784000000000004
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 21.715999999999999
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 19.616
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 19.7
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 18.715999999999999
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.8
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 21.415999999999998
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 20.1
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 20.715999999999999
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 19.116
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.8
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 19.915999999999998
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 20.0
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.1
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 18.915999999999998
+			}
+		]
+	},
+	{
+		"year2019": [
+			{
+				"country": "European Union",
+				"pop_50_64": 20.5
+			},
+			{
+				"country": "Belgium",
+				"pop_50_64": 20.1
+			},
+			{
+				"country": "Bulgaria",
+				"pop_50_64": 20.4
+			},
+			{
+				"country": "Czechia",
+				"pop_50_64": 18.784000000000004
+			},
+			{
+				"country": "Denmark",
+				"pop_50_64": 19.616
+			},
+			{
+				"country": "Germany",
+				"pop_50_64": 22.8
+			},
+			{
+				"country": "Estonia",
+				"pop_50_64": 19.415999999999998
+			},
+			{
+				"country": "Ireland",
+				"pop_50_64": 17.2
+			},
+			{
+				"country": "Greece",
+				"pop_50_64": 20.316
+			},
+			{
+				"country": "Spain",
+				"pop_50_64": 20.7
+			},
+			{
+				"country": "France",
+				"pop_50_64": 19.2
+			},
+			{
+				"country": "Croatia",
+				"pop_50_64": 21.616
+			},
+			{
+				"country": "Italy",
+				"pop_50_64": 21.884
+			},
+			{
+				"country": "Cyprus",
+				"pop_50_64": 17.884
+			},
+			{
+				"country": "Latvia",
+				"pop_50_64": 20.884
+			},
+			{
+				"country": "Lithuania",
+				"pop_50_64": 21.9
+			},
+			{
+				"country": "Luxembourg",
+				"pop_50_64": 19.784000000000004
+			},
+			{
+				"country": "Hungary",
+				"pop_50_64": 19.616
+			},
+			{
+				"country": "Malta",
+				"pop_50_64": 18.184
+			},
+			{
+				"country": "Netherlands",
+				"pop_50_64": 20.884
+			},
+			{
+				"country": "Austria",
+				"pop_50_64": 21.733
+			},
+			{
+				"country": "Poland",
+				"pop_50_64": 19.684
+			},
+			{
+				"country": "Portugal",
+				"pop_50_64": 20.915999999999998
+			},
+			{
+				"country": "Romania",
+				"pop_50_64": 19.666999999999999
+			},
+			{
+				"country": "Slovenia",
+				"pop_50_64": 21.6
+			},
+			{
+				"country": "Slovakia",
+				"pop_50_64": 19.715999999999999
+			},
+			{
+				"country": "Finland",
+				"pop_50_64": 19.884
+			},
+			{
+				"country": "Sweden",
+				"pop_50_64": 18.1
+			},
+			{
+				"country": "United Kingdom",
+				"pop_50_64": 19.1
+			}
+		]
+	}
+]
