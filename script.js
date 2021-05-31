@@ -81,7 +81,7 @@ setTimeout(() => {
 
 
 
-function create_svg(){
+function create_svg(classname) {
   width = 900;
   height = 550;
 
@@ -94,6 +94,7 @@ function create_svg(){
   // create the element where our visualisation will go
   svg = d3.select("#dashboard")
     .append('svg')
+    .attr('class', classname)
     .attr('width', width)
     .attr('height', height);
 
@@ -287,13 +288,13 @@ function update() {
       .call(yaxis);
 }
 
-const play = async function(start,number) {
+const play = async function(classname, start, number, mydata) {
   document.getElementById("myBtn").disabled = true; 
   document.getElementById("births").disabled = true; 
   document.getElementById("deaths").disabled = true; 
   document.getElementById("population").disabled = true; 
 
-  create_svg();
+  create_svg(classname);
   year = 2009;
 
   document.getElementById("year").innerHTML = year;
@@ -436,7 +437,7 @@ function changecolour(name){
   }
 }
 
-function buttonClicked(button){
+function buttonClicked(classname, button, mylist){
   var list = document.getElementById("dashboard");
   list.removeChild(list.childNodes[3]);
   if (year < 2019) {
@@ -444,11 +445,17 @@ function buttonClicked(button){
     year = 0;
   }
   year = 2009;
-  mydata = deaths;
+  console.log(mylist);
+  mydata = mylist;
   changecolour(button);
-  playgraph(1, number + 1);
+  playgraph(classname, 1, number + 1, mydata);
 
 }
+
+const playgraph = async function(classname, start, number, mydata){
+  const result = await play(classname, start, number, mydata);
+}
+
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
 
 births = [births[0].year2009,births[1].year2010,births[2].year2011,births[3].year2012,births[4].year2013,births[5].year2014,births[6].year2015,births[7].year2016,births[8].year2017,births[9].year2018,births[10].year2019]
@@ -457,15 +464,11 @@ deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].yea
 
 mydata = population
 
-number = 7
+number = 8
 
 changecolour('population');
 
-const playgraph = async function(start,number){
-  const result = await play(start,number);
-}
-
-playgraph(1, number + 1);
+playgraph('histogram', 1, number + 1, mydata);
 
 document.getElementById("myBtn").onclick = function() {
   var list = document.getElementById("dashboard");
@@ -475,24 +478,20 @@ document.getElementById("myBtn").onclick = function() {
     year = 0;
   }
   year = 2009;
-  playgraph(1, number + 1);  
+  playgraph('histogram', 1, number + 1, mydata);  
 };
 
 document.getElementById("births").onclick = function() {
-  buttonClicked("births");
+  buttonClicked('histogram', "births", births);
 };
 
 document.getElementById("deaths").onclick = function() {
-  buttonClicked("deaths");
+  buttonClicked('histogram', "deaths", deaths);
 };
 
 document.getElementById("population").onclick = function() {
-  buttonClicked("population");
+  buttonClicked('histogram', "population", population);
 };
-
-// playgraph();
-
-
 
 // t = d3.interval(update, 1000);
 }, 2000);
