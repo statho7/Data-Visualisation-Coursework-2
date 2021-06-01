@@ -14,14 +14,20 @@ body{
     padding: 0 !important;
 }
 
-svg {
+/* svg {
     width: 100%;
     height: 100%;
+} */
+
+h1 {
+  margin-bottom: 0px !important;
 }
 
 g.tick{
-  font-size: 16px;
+  font-size: 14px;
 }
+
+/* g.tick {  margin-top: 15px; writing-mode: vertical-rl; } */
 
 svg img {
   vertical-align: middle;
@@ -30,10 +36,14 @@ svg img {
 }
 
 .container {
-  padding-left: 2.5vw !important;
-  padding-right: 2.5vw !important;
-  margin-left: 2.5vw !important;
-  margin-right: 2.5vw !important;
-  width: 95vw !important;
-  max-width: 95vw !important;
+  padding-left: 0.5vw !important;
+  padding-right: 0.5vw !important;
+  margin-left: 0.5vw !important;
+  margin-right: 0.5vw !important;
+  width: 99vw !important;
+  max-width: 99vw !important;
 }
+
+/* @media screen and (max-width: 500px) {
+  .x g.tick {  min-height: 95px; height: 95px; writing-mode: vertical-rl; }
+} */

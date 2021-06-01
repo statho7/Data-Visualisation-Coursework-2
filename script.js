@@ -81,9 +81,9 @@ setTimeout(() => {
 
 
 
-function create_svg(classname) {
-  width = 900;
-  height = 550;
+function create_svg(classname, _width, _height) {
+  width = _width;
+  height = _height;
 
   margin = {
     top: 50,
@@ -110,9 +110,9 @@ function create_svg(classname) {
 
   // xscale - bands for bars, with spacing
   xScale = d3.scaleBand()
-    .range([margin.left, width - margin.right])
-    .paddingInner(0.4)
-    .paddingOuter(0.5);
+    .range([margin.left - 90, width - margin.right])
+    .paddingInner(0.1)
+    .paddingOuter(0.15);
 
   // yscale - linear
   yScale = d3.scaleLinear()
@@ -146,7 +146,7 @@ function update() {
 
   // update the width (if necessary)
   svg.transition()
-      .duration(500)
+      .duration(280)
       .attr('width', width);
 
   // update the domains for the scales
@@ -172,14 +172,14 @@ function update() {
               .attr('height', 0)
               .attr('x', (d) => xScale(d.country) )
               .transition()
-              .duration(500)
+              .duration(280)
               .attr('y', (d) => yScale(d.value))
               .attr('height', (d) => height - margin.top - yScale(d.value));
       },
       (update) => {
           update
               .transition()
-              .duration(500)
+              .duration(280)
               .attr('y', (d) => yScale(d.value))
               .attr('width', xScale.bandwidth)
               .attr('height', (d) => height - margin.top - yScale(d.value))
@@ -188,7 +188,7 @@ function update() {
       (exit) => {
           exit
               .transition()
-              .duration(500)
+              .duration(280)
               .attr('y', height-margin.top)
               .attr('height', 0)
               .remove();
@@ -205,7 +205,7 @@ function update() {
                   .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
                   .attr('y', height - margin.top)
                   .transition()
-                  .duration(500)
+                  .duration(280)
                   .attr('y', (d) => yScale(d.value) - 5)
                   .text((d) => {
                     if (d.value > 99999999) {
@@ -213,15 +213,21 @@ function update() {
                   }
                   else if (d.value > 9999999) {
                     return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)+','+d.value.toString().substring(5,8)
-                  } else {
+                  }
+                  else if (d.value > 999999) {
+                    return ''+d.value.toString().substring(0,1)+','+d.value.toString().substring(1,4)+','+d.value.toString().substring(4,7)
+                  }
+                  else if (d.value > 99999) {
                     return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)
+                  } else {
+                    return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)
                   }
                 })
           },
           (update) => {
               update
                   .transition()
-                  .duration(500)
+                  .duration(280)
                   .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
                   .attr('y', (d) => yScale(d.value) - 5)
                   .text((d) => {
@@ -230,14 +236,20 @@ function update() {
                   }
                   else if (d.value > 9999999) {
                     return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)+','+d.value.toString().substring(5,8)
-                  } else {
+                  }
+                  else if (d.value > 999999) {
+                    return ''+d.value.toString().substring(0,1)+','+d.value.toString().substring(1,4)+','+d.value.toString().substring(4,7)
+                  }
+                  else if (d.value > 99999) {
                     return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)
+                  } else {
+                    return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)
                   }
                 })
           },
           (exit) => {
               exit.transition()
-                  .duration(500)
+                  .duration(280)
                   .attr('y', height - margin.top)
                   .remove();
           }
@@ -257,20 +269,20 @@ function update() {
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
                       .attr('y', height - margin.top - 30)
                       .transition()
-                      .duration(500)
+                      .duration(280)
                       .attr('y', (d) => yScale(d.value))
               },
               (update) => {
                   update
                       .transition()
-                      .duration(500)
+                      .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
                       .attr('y', (d) => yScale(d.value))
               },
               (exit) => {
                   exit.transition()
-                      .duration(500)
+                      .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
                       .attr('y', height - margin.top - 30)
                       .remove();
@@ -279,22 +291,22 @@ function update() {
 
   svg.select('.x.axis')
       .transition()
-      .duration(500)
+      .duration(280)
       .call(xaxis);
 
   svg.select('.y.axis')
       .transition()
-      .duration(500)
+      .duration(280)
       .call(yaxis);
 }
 
-const play = async function(classname, start, number, mydata) {
+const play = async function(classname, start, number, mydata, _width, _height) {
   document.getElementById("myBtn").disabled = true; 
   document.getElementById("births").disabled = true; 
   document.getElementById("deaths").disabled = true; 
   document.getElementById("population").disabled = true; 
 
-  create_svg(classname);
+  create_svg(classname, _width, _height);
   year = 2009;
 
   document.getElementById("year").innerHTML = year;
@@ -302,7 +314,7 @@ const play = async function(classname, start, number, mydata) {
   data = mydata[0].slice(start,number);
 
   update();
-  t = d3.interval(update, 600)
+  t = d3.interval(update, 300)
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
@@ -438,6 +450,7 @@ function changecolour(name){
 }
 
 function buttonClicked(classname, button, mylist){
+  checkWidth();
   var list = document.getElementById("dashboard");
   list.removeChild(list.childNodes[3]);
   if (year < 2019) {
@@ -448,12 +461,42 @@ function buttonClicked(classname, button, mylist){
   console.log(mylist);
   mydata = mylist;
   changecolour(button);
-  playgraph(classname, 1, number + 1, mydata);
+  playgraph(classname, 1, number + 1, mydata, _width, _height);
 
 }
 
-const playgraph = async function(classname, start, number, mydata){
-  const result = await play(classname, start, number, mydata);
+const playgraph = async function(classname, start, number, mydata, _width, _height){
+  const result = await play(classname, start, number, mydata, _width, _height);
+}
+
+function checkWidth(){
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  if (w > 1500) {
+    _width = 1500;
+    _height = 750;
+    number = 15;
+  } else if(w > 1200){
+    _width = 1200;
+    _height = 650;
+    number = 12;
+  } else if(w > 1000){
+    _width = 1000;
+    _height = 600;
+    number = 10;
+  } else if(w > 900){
+    _width = 850;
+    _height = 500;
+    number = 8;
+  } else if(w > 700){
+    _width = 700;
+    _height = 450;
+    number = 7;
+  } else {
+    _width = 525;
+    _height = 350;
+    number = 5;
+  }
 }
 
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
@@ -462,15 +505,16 @@ births = [births[0].year2009,births[1].year2010,births[2].year2011,births[3].yea
 
 deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].year2012,deaths[4].year2013,deaths[5].year2014,deaths[6].year2015,deaths[7].year2016,deaths[8].year2017,deaths[9].year2018,deaths[10].year2019]
 
-mydata = population
+mydata = population;
 
-number = 8
+checkWidth();
 
 changecolour('population');
 
-playgraph('histogram', 1, number + 1, mydata);
+playgraph('histogram', 1, number + 1, mydata, _width, _height);
 
 document.getElementById("myBtn").onclick = function() {
+  checkWidth();
   var list = document.getElementById("dashboard");
   list.removeChild(list.childNodes[3]);
   if (year < 2019) {
@@ -478,7 +522,7 @@ document.getElementById("myBtn").onclick = function() {
     year = 0;
   }
   year = 2009;
-  playgraph('histogram', 1, number + 1, mydata);  
+  playgraph('histogram', 1, number + 1, mydata, _width, _height);  
 };
 
 document.getElementById("births").onclick = function() {
