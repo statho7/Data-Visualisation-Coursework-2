@@ -300,7 +300,7 @@ function update() {
       .call(yaxis);
 }
 
-const play = async function(classname, start, number, mydata, _width, _height) {
+const play = async function(classname, start, number, mydata, _width, _height, d3interval) {
   document.getElementById("myBtn").disabled = true; 
   document.getElementById("births").disabled = true; 
   document.getElementById("deaths").disabled = true; 
@@ -314,7 +314,7 @@ const play = async function(classname, start, number, mydata, _width, _height) {
   data = mydata[0].slice(start,number);
 
   update();
-  t = d3.interval(update, 300)
+  t = d3.interval(update, d3interval)
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
@@ -461,42 +461,48 @@ function buttonClicked(classname, button, mylist){
   console.log(mylist);
   mydata = mylist;
   changecolour(button);
-  playgraph(classname, 1, number + 1, mydata, _width, _height);
-
+  playgraph(classname, 1, number + 1, mydata, _width, _height, d3interval);
 }
 
-const playgraph = async function(classname, start, number, mydata, _width, _height){
-  const result = await play(classname, start, number, mydata, _width, _height);
+const playgraph = async function(classname, start, number, mydata, _width, _height, d3interval){
+  const result = await play(classname, start, number, mydata, _width, _height, d3interval);
 }
 
 function checkWidth(){
   let w = window.innerWidth;
-  let h = window.innerHeight;
+  // let h = window.innerHeight;
   if (w > 1500) {
     _width = 1500;
     _height = 750;
     number = 15;
+    d3interval = 300;
   } else if(w > 1200){
     _width = 1200;
     _height = 650;
     number = 12;
+    d3interval = 350;
   } else if(w > 1000){
     _width = 1000;
     _height = 600;
     number = 10;
+    d3interval = 380;
   } else if(w > 900){
     _width = 850;
     _height = 500;
     number = 8;
+    d3interval = 500;
   } else if(w > 700){
     _width = 700;
     _height = 450;
     number = 7;
+    d3interval = 515;
   } else {
     _width = 525;
     _height = 350;
     number = 5;
+    d3interval = 750;
   }
+  console.log(d3interval);
 }
 
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
@@ -511,7 +517,7 @@ checkWidth();
 
 changecolour('population');
 
-playgraph('histogram', 1, number + 1, mydata, _width, _height);
+playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval);
 
 document.getElementById("myBtn").onclick = function() {
   checkWidth();
@@ -522,7 +528,7 @@ document.getElementById("myBtn").onclick = function() {
     year = 0;
   }
   year = 2009;
-  playgraph('histogram', 1, number + 1, mydata, _width, _height);  
+  playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval);  
 };
 
 document.getElementById("births").onclick = function() {
