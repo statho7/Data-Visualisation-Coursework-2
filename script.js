@@ -312,26 +312,31 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   year = 2009;
 
   document.getElementById("year").innerHTML = year;
-  year++;
+  year++;  
+  console.log(0);
   data = mydata[0].slice(start,number);
 
   update();
-  t = d3.interval(update, d3interval)
+  t = d3.interval(update, d3interval);
+
   setTimeout(() => {
+    console.log(year);
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(1);
       data = mydata[1].slice(start,number);
        
       update();  
     }
   // }, 5000);
-    }, constant + duration);
+    }, constant + duration * 1);
   
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(2);
       data = mydata[2].slice(start,number);
       update();  
     }
@@ -344,7 +349,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(3);
       data = mydata[3].slice(start,number);  
       update();  
     }
@@ -357,7 +363,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(4);
       data = mydata[4].slice(start,number);  
       update();  
     }
@@ -370,7 +377,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(5);
       data = mydata[5].slice(start,number);
       update();  
     }
@@ -383,7 +391,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(6);
       data = mydata[6].slice(start,number);  
       update();  
     }
@@ -396,7 +405,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(7);
       data = mydata[7].slice(start,number);    
       update();  
     }
@@ -409,7 +419,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(8);
       data = mydata[8].slice(start,number); 
       update();  
     }
@@ -422,7 +433,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
   setTimeout(() => {
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
-      year++;
+      year++;  
+      console.log(9);
       data = mydata[9].slice(start,number);  
       update();  
     }
@@ -436,6 +448,7 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;
+      console.log(10);
       data = mydata[10].slice(start,number);  
       update();  
     }
