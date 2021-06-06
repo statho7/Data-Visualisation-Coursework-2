@@ -517,6 +517,19 @@ function checkWidth(){
   console.log(d3interval);
 }
 
+function checkSlider(){
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value / 1000 + ' seconds';
+  duration = slider.value; // Display the default slider value
+
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+    output.innerHTML = this.value / 1000 + ' seconds';
+    duration = this.value;
+  }
+}
+
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
 
 births = [births[0].year2009,births[1].year2010,births[2].year2011,births[3].year2012,births[4].year2013,births[5].year2014,births[6].year2015,births[7].year2016,births[8].year2017,births[9].year2018,births[10].year2019]
@@ -525,7 +538,8 @@ deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].yea
 
 mydata = population;
 
-duration = 3000;
+checkSlider();
+// duration = 3000;
 
 checkWidth();
 
