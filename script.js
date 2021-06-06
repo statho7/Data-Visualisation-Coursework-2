@@ -300,11 +300,13 @@ function update() {
       .call(yaxis);
 }
 
-const play = async function(classname, start, number, mydata, _width, _height, d3interval) {
+const play = async function(classname, start, number, mydata, _width, _height, d3interval, duration) {
   document.getElementById("myBtn").disabled = true; 
   document.getElementById("births").disabled = true; 
   document.getElementById("deaths").disabled = true; 
   document.getElementById("population").disabled = true; 
+
+  constant = 3100;
 
   create_svg(classname, _width, _height);
   year = 2009;
@@ -323,7 +325,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
        
       update();  
     }
-  }, 5000);
+  // }, 5000);
+    }, constant + duration);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -335,7 +338,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 6500);
+  // }, 6500);
+    }, constant + duration * 2);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -347,7 +351,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 8000);
+  // }, 8000);
+    }, constant + duration * 3);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -359,7 +364,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 9500);
+  // }, 9500);
+    }, constant + duration * 4);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -371,7 +377,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 11000);
+  // }, 11000);
+    }, constant + duration * 5);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -383,7 +390,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 12500);
+  // }, 12500);
+    }, constant + duration * 6);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -395,7 +403,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 14000);
+  // }, 14000);
+    }, constant + duration * 7);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -407,7 +416,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 15500);
+  // }, 15500);
+    }, constant + duration * 8);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -419,7 +429,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     else {
       return;
     }
-  }, 17000);
+  // }, 17000);
+    }, constant + duration * 9);
   
   setTimeout(() => {
     if(year > 2009){   
@@ -435,7 +446,8 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     document.getElementById("births").disabled = false; 
     document.getElementById("deaths").disabled = false; 
     document.getElementById("population").disabled = false; 
-  }, 18500);
+  // }, 18500);
+    }, constant + duration * 10);
 }
 
 
@@ -461,11 +473,11 @@ function buttonClicked(classname, button, mylist){
   console.log(mylist);
   mydata = mylist;
   changecolour(button);
-  playgraph(classname, 1, number + 1, mydata, _width, _height, d3interval);
+  playgraph(classname, 1, number + 1, mydata, _width, _height, d3interval, duration);
 }
 
-const playgraph = async function(classname, start, number, mydata, _width, _height, d3interval){
-  const result = await play(classname, start, number, mydata, _width, _height, d3interval);
+const playgraph = async function(classname, start, number, mydata, _width, _height, d3interval, duration){
+  const result = await play(classname, start, number, mydata, _width, _height, d3interval, duration);
 }
 
 function checkWidth(){
@@ -473,34 +485,34 @@ function checkWidth(){
   // let h = window.innerHeight;
   if (w > 1500) {
     _width = 1500;
-    _height = 750;
+    _height = 600;
     number = 15;
-    d3interval = 300;
+    d3interval = 200;
   } else if(w > 1200){
     _width = 1200;
-    _height = 650;
+    _height = 500;
     number = 12;
-    d3interval = 350;
+    d3interval = 250;
   } else if(w > 1000){
     _width = 1000;
-    _height = 600;
+    _height = 500;
     number = 10;
-    d3interval = 380;
+    d3interval = 300;
   } else if(w > 900){
     _width = 850;
-    _height = 500;
+    _height = 450;
     number = 8;
-    d3interval = 500;
+    d3interval = 370;
   } else if(w > 700){
     _width = 700;
-    _height = 450;
+    _height = 400;
     number = 7;
-    d3interval = 515;
+    d3interval = 430;
   } else {
     _width = 525;
     _height = 350;
     number = 5;
-    d3interval = 750;
+    d3interval = 600;
   }
   console.log(d3interval);
 }
@@ -513,11 +525,13 @@ deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].yea
 
 mydata = population;
 
+duration = 3000;
+
 checkWidth();
 
 changecolour('population');
 
-playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval);
+playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval, duration);
 
 document.getElementById("myBtn").onclick = function() {
   checkWidth();
@@ -528,7 +542,7 @@ document.getElementById("myBtn").onclick = function() {
     year = 0;
   }
   year = 2009;
-  playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval);  
+  playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval, duration);  
 };
 
 document.getElementById("births").onclick = function() {

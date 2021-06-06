@@ -1,7 +1,7 @@
 #dashboard{
     /* background-color: #003B46; */
     height: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     width: 100%;
     padding: 0;
 }
@@ -14,6 +14,14 @@ body{
     padding: 0 !important;
 }
 
+.col-1 ul{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* .container .row{
+  min-width: 410;
+} */
 /* svg {
     width: 100%;
     height: 100%;
@@ -44,6 +52,8 @@ svg img {
   max-width: 99vw !important;
 }
 
-/* @media screen and (max-width: 500px) {
-  .x g.tick {  min-height: 95px; height: 95px; writing-mode: vertical-rl; }
-} */
+@media screen and (max-width: 670px) {
+  .container .row{
+    max-width: 410px;
+  }
+}
