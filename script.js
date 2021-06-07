@@ -20,64 +20,8 @@ fetch('/Datasets/population.json')
 })
 .then(data => population = data);
 
-// let pop_0_14 = []
-// fetch('/Datasets/pop_0_14.json')
-// .then(response => {
-//    return response.json();
-// })
-// .then(data => pop_0_14 = data);
-
-// let pop_15_24 = []
-// fetch('/Datasets/pop_15_24.json')
-// .then(response => {
-//    return response.json();
-// })
-// .then(data => pop_15_24 = data);
-
-// let pop_25_49 = []
-// fetch('/Datasets/pop_25_49.json')
-// .then(response => {
-//    return response.json();
-// })
-// .then(data => pop_25_49 = data);
-
-// let pop_50_64 = []
-// fetch('/Datasets/pop_50_64.json')
-// .then(response => {
-//    return response.json();
-// })
-// .then(data => pop_50_64 = data);
-
-// let pop_65_79 = []
-// fetch('/Datasets/pop_65_79.json')
-// .then(response => {
-//    return response.json();
-// })
-// .then(data => pop_65_79 = data);
-
-// let pop_80 = []
-// fetch('/Datasets/pop_80.json')
-// .then(response => {
-//    return response.json();
-// })
-// .then(data => pop_80 = data);
-
 
 setTimeout(() => {
-  // document.getElementById("year").innerHTML = '2009';
-  // year2009 = population[0].year2009;
-  // var bins = histogram(year2009);
-  // console.log(year2009);
-  // console.log(births);
-  // console.log(deaths);
-  // console.log(population);
-  // console.log(pop_0_14);
-  // console.log(pop_15_24);
-  // console.log(pop_25_49);
-  // console.log(pop_50_64);
-  // console.log(pop_65_79);
-  // console.log(pop_80);
-// }, 500);
 
 function create_svg(classname, _width, _height) {
   width = _width;
@@ -265,10 +209,10 @@ function update() {
                       .attr('z-index','500')
                       .attr('visibility','visible')
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
-                      .attr('y', height - margin.top - 30)
+                      .attr('y', (d) => height - 35)
                       .transition()
                       .duration(280)
-                      .attr('y', (d) => yScale(d.value))
+                      .attr('y', (d) => height - 35)
               },
               (update) => {
                   update
@@ -276,13 +220,13 @@ function update() {
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
-                      .attr('y', (d) => yScale(d.value))
+                      .attr('y', (d) => height - 35)
               },
               (exit) => {
                   exit.transition()
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('y', height - margin.top - 30)
+                      .attr('y', (d) => height - 35)
                       .remove();
               }
           );
@@ -484,16 +428,23 @@ function changecolour(name){
 }
 
 function buttonClicked(classname, button, mylist){
-  checkWidth();
+  mydata = mylist;
+  if (check){
+    checkWidth();
+    default_countries();
+  }
+  else{
+    submit_countries();
+  }
+
   var list = document.getElementById("dashboard");
-  list.removeChild(list.childNodes[3]);
+  list.removeChild(list.childNodes[5]);
   if (year < 2019) {
-    console.log(year);
+    // console.log(year);
     year = 0;
   }
   year = 2009;
-  console.log(mylist);
-  mydata = mylist;
+  // console.log(mylist);
   changecolour(button);
   playgraph(classname, 1, number + 1, dataset, _width, _height, d3interval, duration);
 }
@@ -543,7 +494,7 @@ function checkWidth(){
     // d3interval = 850;
   }
   d3interval = Math.round((constant - 100) / number);
-  console.log(d3interval);
+  // console.log(d3interval);
 }
 
 function checkSlider(){
@@ -560,6 +511,7 @@ function checkSlider(){
 }
 
 function default_countries(){
+  check = true;
   dataset = [[],[],[],[],[],[],[],[],[],[],[]];
   countries = mydata[0];
 
@@ -589,7 +541,7 @@ function submit_countries(){
       }      
     }   
   }
-  console.log(dataset); 
+  // console.log(dataset); 
 
   number = selected_countries.length;
   if (selected_countries.length > 20) {
@@ -631,23 +583,23 @@ function submit_countries(){
   }
   d3interval = Math.round((constant - 100) / number);
 
-  replay_the_graph(false);
+  check = false;
 }
 
-function replay_the_graph(check = true){
+function replay_the_graph(){
   if (check){
     checkWidth();
   }
   var list = document.getElementById("dashboard");
-  list.removeChild(list.childNodes[3]);
+  list.removeChild(list.childNodes[5]);
   if (year < 2019) {
-    console.log(year);
+    // console.log(year);
     year = 0;
   }
   year = 2009;
   playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);  
 
-  console.log(constant);
+  // console.log(constant);
 }
 
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
@@ -657,12 +609,21 @@ births = [births[0].year2009,births[1].year2010,births[2].year2011,births[3].yea
 deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].year2012,deaths[4].year2013,deaths[5].year2014,deaths[6].year2015,deaths[7].year2016,deaths[8].year2017,deaths[9].year2018,deaths[10].year2019]
 
 mydata = population;
+document.getElementById("type").innerHTML = "Population";
+
+check = true;
 
 selected_countries = []
 
 checkSlider();
 
 checkWidth();
+
+changecolour('population');
+
+default_countries(1);
+
+playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);
 
 document.getElementById("countries").onchange = function() {
   const sel = document.querySelectorAll('#countries option:checked');
@@ -672,17 +633,12 @@ document.getElementById("countries").onchange = function() {
 
 document.getElementById("submit").onclick = function() {
   submit_countries();
+  replay_the_graph();
 }
 
 document.getElementById("default").onclick = function() {
   replay_the_graph();
 }
-
-changecolour('population');
-
-default_countries(1);
-
-playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);
 
 
 document.getElementById("default").onclick = function() {
@@ -695,14 +651,17 @@ document.getElementById("myBtn").onclick = function() {
 };
 
 document.getElementById("births").onclick = function() {
+  document.getElementById("type").innerHTML = "Births";
   buttonClicked('histogram', "births", births);
 };
 
 document.getElementById("deaths").onclick = function() {
+  document.getElementById("type").innerHTML = "Deaths";
   buttonClicked('histogram', "deaths", deaths);
 };
 
 document.getElementById("population").onclick = function() {
+  document.getElementById("type").innerHTML = "Population";
   buttonClicked('histogram', "population", population);
 };
 
