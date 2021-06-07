@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+#dashboard svg {
+  margin-bottom: 20px;
+}
+
 body{
     background-color: #e3e9e9 !important;
     height: 100%;

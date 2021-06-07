@@ -209,10 +209,10 @@ function update() {
                       .attr('z-index','500')
                       .attr('visibility','visible')
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
-                      .attr('y', (d) => height - 35)
+                      .attr('y', height - 33)
                       .transition()
                       .duration(280)
-                      .attr('y', (d) => height - 35)
+                      .attr('y', height - 33)
               },
               (update) => {
                   update
@@ -220,13 +220,13 @@ function update() {
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
-                      .attr('y', (d) => height - 35)
+                      .attr('y', height - 33)
               },
               (exit) => {
                   exit.transition()
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('y', (d) => height - 35)
+                      .attr('y', height - 33)
                       .remove();
               }
           );
@@ -513,7 +513,6 @@ function checkSlider(){
 function default_countries(){
   check = true;
   dataset = [[],[],[],[],[],[],[],[],[],[],[]];
-  countries = mydata[0];
 
   indexes = [];
 
@@ -532,7 +531,6 @@ function default_countries(){
 
 function submit_countries(){
   dataset = [[],[],[],[],[],[],[],[],[],[],[]];
-  countries = mydata[0];
 
   for (let i = 0; i < mydata.length; i++) {
     for (let j = 0; j < mydata[i].length; j++) {
@@ -609,6 +607,9 @@ births = [births[0].year2009,births[1].year2010,births[2].year2011,births[3].yea
 deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].year2012,deaths[4].year2013,deaths[5].year2014,deaths[6].year2015,deaths[7].year2016,deaths[8].year2017,deaths[9].year2018,deaths[10].year2019]
 
 mydata = population;
+
+countries = mydata[0];
+
 document.getElementById("type").innerHTML = "Population";
 
 check = true;
@@ -635,11 +636,6 @@ document.getElementById("submit").onclick = function() {
   submit_countries();
   replay_the_graph();
 }
-
-document.getElementById("default").onclick = function() {
-  replay_the_graph();
-}
-
 
 document.getElementById("default").onclick = function() {
   default_countries(1);
