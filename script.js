@@ -704,32 +704,37 @@ function submit_countries(){
   }
   // console.log(dataset); 
 
-  number = selected_countries.length;
-  if (selected_countries.length > 20) {
+  if (_button != '') {
+    number = selected_countries.length * 2;
+  } else {
+    number = selected_countries.length;
+  }
+  
+  if (number > 20) {
     _width = 2500;
     // _height = 600;
     // number = 10;
     constant = 5000;
     // d3interval = 300;
-  } else if(selected_countries.length > 15){
+  } else if(number > 15){
     _width = 2100;
     // _height = 500;
     // number = 9;
     constant = 4000;
     // d3interval = 380;
-  } else if(selected_countries.length > 10){
+  } else if(number > 10){
     _width = 1600;
     // _height = 500;
     // number = 8;
     constant = 3000;
     // d3interval = 430;
-  } else if(selected_countries.length > 8){
+  } else if(number > 8){
     _width = 1300;
     // _height = 450;
     // number = 6;
     constant = 2000;
     // d3interval = 580;
-  } else if(selected_countries.length > 5){
+  } else if(number > 5){
     _width = 850;
     // _height = 400;
     // number = 5;
@@ -827,12 +832,10 @@ document.getElementById("countries").onchange = function() {
 
 document.getElementById("submit").onclick = function() {
   submit_countries();
-  replay_the_graph();
 }
 
 document.getElementById("default").onclick = function() {
   default_countries(1);
-  replay_the_graph();
 };
 
 document.getElementById("myBtn").onclick = function() {
