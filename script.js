@@ -68,9 +68,9 @@ setTimeout(() => {
   // year2009 = population[0].year2009;
   // var bins = histogram(year2009);
   // console.log(year2009);
-  console.log(births)
-  console.log(deaths);
-  console.log(population);
+  // console.log(births);
+  // console.log(deaths);
+  // console.log(population);
   // console.log(pop_0_14);
   // console.log(pop_15_24);
   // console.log(pop_25_49);
@@ -138,7 +138,7 @@ function update() {
   count++;
   // if we've got to the end of the data, stop running
   if(count > data.length) {
-      console.log('stopping');
+      // console.log('stopping');
       t.stop();
   }
 
@@ -319,7 +319,6 @@ const play = async function(classname, start, number, dataset, _width, _height, 
   t = d3.interval(update, d3interval);
 
   setTimeout(() => {
-    console.log(year);
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
@@ -510,31 +509,37 @@ function checkWidth(){
     _width = 1300;
     _height = 600;
     number = 10;
+    constant = 3000;
     // d3interval = 300;
-  } else if(w > 1200){
+  } else if (w > 1200){
     _width = 1200;
     _height = 500;
     number = 9;
+    constant = 2700;
     // d3interval = 380;
-  } else if(w > 1000){
+  } else if (w > 1000){
     _width = 1000;
     _height = 500;
     number = 8;
+    constant = 2500;
     // d3interval = 430;
-  } else if(w > 900){
+  } else if (w > 900){
     _width = 850;
     _height = 450;
     number = 6;
+    constant = 2000;
     // d3interval = 580;
-  } else if(w > 700){
+  } else if (w > 700){
     _width = 700;
     _height = 400;
     number = 5;
+    constant = 1800;
     // d3interval = 700;
   } else {
     _width = 525;
     _height = 350;
     number = 4;
+    constant = 1500;
     // d3interval = 850;
   }
   d3interval = Math.round((constant - 100) / number);
@@ -586,11 +591,53 @@ function submit_countries(){
   }
   console.log(dataset); 
 
-  replay_the_graph();
+  number = selected_countries.length;
+  if (selected_countries.length > 20) {
+    _width = 2500;
+    // _height = 600;
+    // number = 10;
+    constant = 5000;
+    // d3interval = 300;
+  } else if(selected_countries.length > 15){
+    _width = 2100;
+    // _height = 500;
+    // number = 9;
+    constant = 4000;
+    // d3interval = 380;
+  } else if(selected_countries.length > 10){
+    _width = 1600;
+    // _height = 500;
+    // number = 8;
+    constant = 3000;
+    // d3interval = 430;
+  } else if(selected_countries.length > 8){
+    _width = 1300;
+    // _height = 450;
+    // number = 6;
+    constant = 2000;
+    // d3interval = 580;
+  } else if(selected_countries.length > 5){
+    _width = 850;
+    // _height = 400;
+    // number = 5;
+    constant = 1800;
+    // d3interval = 700;
+  } else {
+    _width = 525;
+    // _height = 350;
+    // number = 4;
+    constant = 1500;
+    // d3interval = 850;
+  }
+  d3interval = Math.round((constant - 100) / number);
+
+  replay_the_graph(false);
 }
 
-function replay_the_graph(){
-  checkWidth();
+function replay_the_graph(check = true){
+  if (check){
+    checkWidth();
+  }
   var list = document.getElementById("dashboard");
   list.removeChild(list.childNodes[3]);
   if (year < 2019) {
@@ -599,6 +646,8 @@ function replay_the_graph(){
   }
   year = 2009;
   playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);  
+
+  console.log(constant);
 }
 
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
@@ -610,8 +659,6 @@ deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].yea
 mydata = population;
 
 selected_countries = []
-
-constant = 3600;
 
 checkSlider();
 
@@ -659,5 +706,4 @@ document.getElementById("population").onclick = function() {
   buttonClicked('histogram', "population", population);
 };
 
-// t = d3.interval(update, 1000);
-}, 2000);
+}, 1500);
