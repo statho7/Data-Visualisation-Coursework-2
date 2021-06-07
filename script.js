@@ -69,7 +69,7 @@ function create_svg(classname, _width, _height) {
 
 function bar_color(type){
   if (type == 'deaths') {
-    return 'rgba(120,5,5,0.5)'
+    return 'rgba(200, 5, 5, 0.85)'
   }
   else{
     return 'rgba(15, 65, 250, 0.95)'
@@ -658,9 +658,11 @@ function checkSlider(){
 
 function default_countries(){
   check = true;
+  
   if (check){
     checkWidth();
   }
+
   dataset = [[],[],[],[],[],[],[],[],[],[],[]];
 
   indexes = [];
@@ -693,6 +695,7 @@ function default_countries(){
 }
 
 function submit_countries(){
+  check = false;
   dataset = [[],[],[],[],[],[],[],[],[],[],[]];
 
   for (let i = 0; i < mydata.length; i++) {
@@ -706,55 +709,69 @@ function submit_countries(){
 
   if (_button != '') {
     number = selected_countries.length * 2;
+  
+    if (number > 20) {
+      _width = 2850;
+      constant = 5000;
+    } else if(number > 15){
+      _width = 2300;
+      constant = 4000;
+    } else if(number > 10){
+      _width = 1950;
+      constant = 3000;
+    } else if(number > 8){
+      _width = 1750;
+      constant = 2000;
+    } else if(number > 6){
+      _width = 1300;
+      constant = 1800;
+    }else if(number > 4){
+      _width = 900;
+      constant = 1800;
+    } else {
+      _width = 650;
+      constant = 1500;
+    }
   } else {
     number = selected_countries.length;
+    if (number > 20) {
+      _width = 2500;
+      constant = 5000;
+    } else if(number > 15){
+      _width = 2100;
+      constant = 4000;
+    } else if(number > 10){
+      _width = 1600;
+      constant = 3000;
+    } else if(number > 8){
+      _width = 1300;
+      constant = 2000;
+    } else if(number > 5){
+      _width = 850;
+      constant = 1800;
+    } else {
+      _width = 525;
+      constant = 1500;
+    }
+  }
+
+  if(selected_countries.includes('United Kingdom')){
+    _width = _width + 150;
   }
   
-  if (number > 20) {
-    _width = 2500;
-    // _height = 600;
-    // number = 10;
-    constant = 5000;
-    // d3interval = 300;
-  } else if(number > 15){
-    _width = 2100;
-    // _height = 500;
-    // number = 9;
-    constant = 4000;
-    // d3interval = 380;
-  } else if(number > 10){
-    _width = 1600;
-    // _height = 500;
-    // number = 8;
-    constant = 3000;
-    // d3interval = 430;
-  } else if(number > 8){
-    _width = 1300;
-    // _height = 450;
-    // number = 6;
-    constant = 2000;
-    // d3interval = 580;
-  } else if(number > 5){
-    _width = 850;
-    // _height = 400;
-    // number = 5;
-    constant = 1800;
-    // d3interval = 700;
-  } else {
-    _width = 525;
-    // _height = 350;
-    // number = 4;
-    constant = 1500;
-    // d3interval = 850;
-  }
   d3interval = Math.round((constant - 100) / number);
 
   check = false;
 }
 
 function replay_the_graph(){
+  
   if (check){
     checkWidth();
+    default_countries();
+  }
+  else{
+    submit_countries();
   }
   var list = document.getElementById("dashboard");
   list.removeChild(list.childNodes[5]);
@@ -779,23 +796,6 @@ _button = '';
 countries = mydata[0];
 
 births_deaths = [[],[],[],[],[],[],[],[],[],[],[]]
-
-// function dynamicSort(property) {
-//   var sortOrder = 1;
-
-//   if(property[0] === "-") {
-//       sortOrder = -1;
-//       property = property.substr(1);
-//   }
-
-//   return function (a,b) {
-//       if(sortOrder == -1){
-//           return b[property].localeCompare(a[property]);
-//       }else{
-//           return a[property].localeCompare(b[property]);
-//       }        
-//   }
-// }
 
 for (let index = 0; index < births.length; index++) {
   for (let j = 1; j < births[index].length+1; j++) {
