@@ -1,5 +1,4 @@
 #dashboard{
-    /* background-color: #003B46; */
     height: 100%;
     /* min-height: 100vh; */
     width: 100%;
@@ -7,11 +6,13 @@
 }
 
 #dashboard svg {
+  background-color: rgba(210, 210, 210, 0.75);;
   margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 body{
-    background-color: #e3e9e9 !important;
+    background-color: rgba(230, 230, 230, 0.6) !important;
     height: 100%;
     min-height: 100vh;
     width: 100%;

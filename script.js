@@ -101,7 +101,7 @@ function update() {
       .data(iter_data)
       .join((enter) => {
           enter.append('rect')
-              .attr('fill', 'grey')
+              .attr('fill', 'rgba(5,5,90,0.9)')
               .attr('rx', '10')
               .attr('ry', '10')
               
@@ -204,15 +204,15 @@ function update() {
                   enter.append('svg:image')
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
                       .attr('class', 'image')
-                      .attr('width', '30')
-                      .attr('height', '30')
+                      .attr('width', '30px')
+                      .attr('height', '30px')
                       .attr('z-index','500')
                       .attr('visibility','visible')
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
-                      .attr('y', height - 30)
+                      .attr('y', height - 27)
                       .transition()
                       .duration(280)
-                      .attr('y', height - 30)
+                      .attr('y', height - 27)
               },
               (update) => {
                   update
@@ -220,13 +220,13 @@ function update() {
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
                       .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
-                      .attr('y', height - 30)
+                      .attr('y', height - 27)
               },
               (exit) => {
                   exit.transition()
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('y', height - 30)
+                      .attr('y', height - 27)
                       .remove();
               }
           );
@@ -458,31 +458,31 @@ function checkWidth(){
   // let h = window.innerHeight;
   if (w > 1500) {
     _width = 1300;
-    _height = 600;
+    _height = 500;
     number = 10;
     constant = 3000;
     // d3interval = 300;
   } else if (w > 1200){
     _width = 1200;
-    _height = 500;
+    _height = 475;
     number = 9;
     constant = 2700;
     // d3interval = 380;
   } else if (w > 1000){
     _width = 1000;
-    _height = 500;
+    _height = 450;
     number = 8;
     constant = 2500;
     // d3interval = 430;
   } else if (w > 900){
     _width = 850;
-    _height = 450;
+    _height = 400;
     number = 6;
     constant = 2000;
     // d3interval = 580;
   } else if (w > 700){
     _width = 700;
-    _height = 400;
+    _height = 375;
     number = 5;
     constant = 1800;
     // d3interval = 700;
@@ -512,6 +512,9 @@ function checkSlider(){
 
 function default_countries(){
   check = true;
+  if (check){
+    checkWidth();
+  }
   dataset = [[],[],[],[],[],[],[],[],[],[],[]];
 
   indexes = [];
