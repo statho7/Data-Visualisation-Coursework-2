@@ -1,565 +1,489 @@
+// Initialization of the 3 arrays for the births, the deaths and the population of the countries of EU28 for the years 2009-2019.
 let births = []
+let deaths = []
+let population = []
 
+// Fetching the json files and saving the data in the empty dedicated arrays
 fetch('/Datasets/births.json')
 .then(response => {
    return response.json();
 })
 .then(data => births = data);
 
-let deaths = []
 fetch('/Datasets/deaths.json')
 .then(response => {
    return response.json();
 })
 .then(data => deaths = data);
 
-let population = []
 fetch('/Datasets/population.json')
 .then(response => {
    return response.json();
 })
 .then(data => population = data);
 
-
+//In order to give some time for the fetching process we set all the code inside a setTimeout that runs after 1.5 seconds
 setTimeout(() => {
 
-function create_svg(classname, _width, _height) {
-  width = _width;
-  height = _height;
+  // Function for the creation of the svg
+  function create_svg(classname, _width, _height) {
+    width = _width;
+    height = _height;
 
-  margin = {
-    top: 50,
-    left: 90,
-    right: 10,
-    bottom: 30
-  }
-  // create the element where our visualisation will go
-  svg = d3.select("#dashboard")
-    .append('svg')
-    .attr('class', classname)
-    .attr('width', width)
-    .attr('height', height);
+    margin = {
+      top: 50,
+      left: 90,
+      right: 10,
+      bottom: 30
+    }
 
-  // x-axis group
-  svg.append('g')
-    .attr('class', 'x axis')
-    .attr('transform', `translate(0,${height-margin.top})`);
+    // create the element where our visualisation will go
+    svg = d3.select("#dashboard")
+      .append('svg')
+      .attr('class', classname)
+      .attr('width', width)
+      .attr('height', height);
 
-  // y-axis group
-  svg.append('g')
-    .attr('class', 'y axis')
-    .attr('transform', `translate(${margin.left},0)`);
+    // x-axis group
+    svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', `translate(0,${height-margin.top})`);
 
-  // xscale - bands for bars, with spacing
-  xScale = d3.scaleBand()
-    .range([margin.left - 90, width - margin.right])
-    .paddingInner(0.1)
-    .paddingOuter(0.15);
+    // y-axis group
+    svg.append('g')
+      .attr('class', 'y axis')
+      .attr('transform', `translate(${margin.left},0)`);
 
-  // yscale - linear
-  yScale = d3.scaleLinear()
-    .range([height-margin.top, margin.bottom]);
+    // xscale - bands for bars, with spacing
+    xScale = d3.scaleBand()
+      .range([margin.left - 90, width - margin.right])
+      .paddingInner(0.1)
+      .paddingOuter(0.15);
 
-  xaxis = d3.axisBottom(xScale);
-  yaxis = d3.axisLeft(yScale);
+    // yscale - linear
+    yScale = d3.scaleLinear()
+      .range([height-margin.top, margin.bottom]);
 
-  // how many data items have we added? Also how many times update() has run
-  count = 1;
-}
+    xaxis = d3.axisBottom(xScale);
+    yaxis = d3.axisLeft(yScale);
 
-function bar_color(type){
-  if (type == 'deaths') {
-    return 'rgba(200, 5, 5, 0.85)'
-  }
-  else{
-    return 'rgba(15, 65, 250, 0.95)'
-  }
-}
-
-function update() {
-
-  // get the data for this iteration (data[0:count])
-  iter_data = data.slice(0, count);
-  
-  // increase the size of the graphic (optional)
-  // width = width + 15;
-
-
-  // console.log(iter_data);
-  
-  // increase iteration count
-  count++;
-  // if we've got to the end of the data, stop running
-  if(count > data.length) {
-      // console.log('stopping');
-      t.stop();
+    // how many data items have we added? Also how many times update() has run
+    count = 1;
   }
 
-  // update the width (if necessary)
-  svg.transition()
-      .duration(280)
-      .attr('width', width);
+  //Functions that returns the color of the bars for our graph
+  function bar_color(type){
+    if (type == 'deaths') {
+      return 'rgba(200, 5, 5, 0.85)'
+    }
+    else{
+      return 'rgba(15, 65, 250, 0.95)'
+    }
+  }
 
-  // update the domains for the scales
-  yScale.domain([0, d3.max(iter_data, (d) => d.value)]);
-  // xScale.domain(iter_data.map((d) => d.country + ' ' + d.type))
-  //     .range([margin.left, width - margin.right]);
+  //Function to display the numbers with ',' to be able for the reader to read the numbers above the bars 
+  function number_display(value) {    
+    if (value > 99999999) {
+      return ''+value.toString().substring(0,3)+','+value.toString().substring(3,6)+','+value.toString().substring(6,9)
+    }
+    else if (value > 9999999) {
+      return ''+value.toString().substring(0,2)+','+value.toString().substring(2,5)+','+value.toString().substring(5,8)
+    }
+    else if (value > 999999) {
+      return ''+value.toString().substring(0,1)+','+value.toString().substring(1,4)+','+value.toString().substring(4,7)
+    }
+    else if (value > 99999) {
+      return ''+value.toString().substring(0,3)+','+value.toString().substring(3,6)
+    } else {
+      return ''+value.toString().substring(0,2)+','+value.toString().substring(2,5)
+    }
+  }
 
-  if (_button != '') {
-    xScale.domain(iter_data.map((d) => d.country + ' ' + d.type))
-        .range([margin.left, width - margin.right]);
-  
-        // add bars to the visualisation for each data element
-        svg.selectAll('rect')
-            .data(iter_data)
-            .join((enter) => {
-                enter.append('rect')
-                    .attr('fill', (d) => bar_color(d.type))
-                    .attr('rx', '10')
-                    .attr('ry', '10')
-                    .attr('width', xScale.bandwidth)
-                    .attr('y', height - margin.top)
-                    .attr('height', 0)
-                    .attr('x', (d) => xScale(d.country + ' ' + d.type) )
-                    .transition()
-                    .duration(280)
-                    .attr('y', (d) => yScale(d.value))
-                    .attr('height', (d) => height - margin.top - yScale(d.value));
-            },
-            (update) => {
-                update
-                    .transition()
-                    .duration(280)
-                    .attr('y', (d) => yScale(d.value))
-                    .attr('width', xScale.bandwidth)
-                    .attr('height', (d) => height - margin.top - yScale(d.value))
-                    .attr('x', (d) => xScale(d.country + ' ' + d.type) );
-            },
-            (exit) => {
-                exit
-                    .transition()
-                    .duration(280)
-                    .attr('y', height-margin.top)
-                    .attr('height', 0)
-                    .remove();
-            });
-            svg.selectAll('.label')
-            .data(iter_data)
-            .join(
-                (enter) => {
-                    enter.append('text')
-                        .attr('class', 'label')
-                        .attr('fill', 'black')
-                        .attr('text-anchor', 'middle')
-                        .attr('x', (d) => xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2)
-                        .attr('y', height - margin.top)
-                        .transition()
-                        .duration(280)
-                        .attr('y', (d) => yScale(d.value) - 5)
-                        .text((d) => {
-                          if (d.value > 99999999) {
-                            return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)+','+d.value.toString().substring(6,9)
-                        }
-                        else if (d.value > 9999999) {
-                          return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)+','+d.value.toString().substring(5,8)
-                        }
-                        else if (d.value > 999999) {
-                          return ''+d.value.toString().substring(0,1)+','+d.value.toString().substring(1,4)+','+d.value.toString().substring(4,7)
-                        }
-                        else if (d.value > 99999) {
-                          return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)
-                        } else {
-                          return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)
-                        }
-                      })
-                },
-                (update) => {
-                    update
-                        .transition()
-                        .duration(280)
-                        .attr('x', (d) => xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2)
-                        .attr('y', (d) => yScale(d.value) - 5)
-                        .text((d) => {
-                          if (d.value > 99999999) {
-                            return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)+','+d.value.toString().substring(6,9)
-                        }
-                        else if (d.value > 9999999) {
-                          return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)+','+d.value.toString().substring(5,8)
-                        }
-                        else if (d.value > 999999) {
-                          return ''+d.value.toString().substring(0,1)+','+d.value.toString().substring(1,4)+','+d.value.toString().substring(4,7)
-                        }
-                        else if (d.value > 99999) {
-                          return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)
-                        } else {
-                          return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)
-                        }
-                      })
-                },
-                (exit) => {
-                    exit.transition()
-                        .duration(280)
-                        .attr('y', height - margin.top)
-                        .remove();
-                }
-            );
-      
-            svg.selectAll('.image')
-                .data(iter_data)
-                .join(
-                    (enter) => {
-                        enter.append('svg:image')
-                            .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                            .attr('class', 'image')
-                            .attr('width', '30px')
-                            .attr('height', '30px')
-                            .attr('z-index','500')
-                            .attr('visibility','visible')
-                            .attr('x', (d) => (xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2) - 15)
-                            .attr('y', height - 27)
-                            .transition()
-                            .duration(280)
-                            .attr('y', height - 27)
-                    },
-                    (update) => {
-                        update
-                            .transition()
-                            .duration(280)
-                            .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                            .attr('x', (d) => (xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2) - 15)
-                            .attr('y', height - 27)
-                    },
-                    (exit) => {
-                        exit.transition()
-                            .duration(280)
-                            .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                            .attr('y', height - 27)
-                            .remove();
-                    }
-                );
-  } else {
-    xScale.domain(iter_data.map((d) => d.country))
-        .range([margin.left, width - margin.right]);    
-  
-  // add bars to the visualisation for each data element
-  svg.selectAll('rect')
-      .data(iter_data)
-      .join((enter) => {
-          enter.append('rect')
-              .attr('fill', (d) => bar_color(d.type))
-              .attr('rx', '10')
-              .attr('ry', '10')
-              .attr('width', xScale.bandwidth)
-              .attr('y', height - margin.top)
-              .attr('height', 0)
-              .attr('x', (d) => xScale(d.country) )
-              .transition()
-              .duration(280)
-              .attr('y', (d) => yScale(d.value))
-              .attr('height', (d) => height - margin.top - yScale(d.value));
-      },
-      (update) => {
-          update
-              .transition()
-              .duration(280)
-              .attr('y', (d) => yScale(d.value))
-              .attr('width', xScale.bandwidth)
-              .attr('height', (d) => height - margin.top - yScale(d.value))
-              .attr('x', (d) => xScale(d.country) );
-      },
-      (exit) => {
-          exit
-              .transition()
-              .duration(280)
-              .attr('y', height-margin.top)
-              .attr('height', 0)
-              .remove();
-      });
+  // Function based on the one Dr.Chorley provided in a lecture. 
+  // There is a lot of functionality added to it in order to add flags
+  // and to be able and have two rect elements side by side for the 
+  // Births and Deaths of a country.
+  function update() {
 
-      svg.selectAll('.label')
-      .data(iter_data)
-      .join(
-          (enter) => {
-              enter.append('text')
-                  .attr('class', 'label')
-                  .attr('fill', 'black')
-                  .attr('text-anchor', 'middle')
-                  .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
-                  .attr('y', height - margin.top)
-                  .transition()
-                  .duration(280)
-                  .attr('y', (d) => yScale(d.value) - 5)
-                  .text((d) => {
-                    if (d.value > 99999999) {
-                      return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)+','+d.value.toString().substring(6,9)
-                  }
-                  else if (d.value > 9999999) {
-                    return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)+','+d.value.toString().substring(5,8)
-                  }
-                  else if (d.value > 999999) {
-                    return ''+d.value.toString().substring(0,1)+','+d.value.toString().substring(1,4)+','+d.value.toString().substring(4,7)
-                  }
-                  else if (d.value > 99999) {
-                    return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)
-                  } else {
-                    return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)
-                  }
-                })
-          },
-          (update) => {
-              update
-                  .transition()
-                  .duration(280)
-                  .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
-                  .attr('y', (d) => yScale(d.value) - 5)
-                  .text((d) => {
-                    if (d.value > 99999999) {
-                      return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)+','+d.value.toString().substring(6,9)
-                  }
-                  else if (d.value > 9999999) {
-                    return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)+','+d.value.toString().substring(5,8)
-                  }
-                  else if (d.value > 999999) {
-                    return ''+d.value.toString().substring(0,1)+','+d.value.toString().substring(1,4)+','+d.value.toString().substring(4,7)
-                  }
-                  else if (d.value > 99999) {
-                    return ''+d.value.toString().substring(0,3)+','+d.value.toString().substring(3,6)
-                  } else {
-                    return ''+d.value.toString().substring(0,2)+','+d.value.toString().substring(2,5)
-                  }
-                })
-          },
-          (exit) => {
-              exit.transition()
-                  .duration(280)
-                  .attr('y', height - margin.top)
-                  .remove();
-          }
-      );
+    // get the data for this iteration (data[0:count])
+    iter_data = data.slice(0, count);
 
-      svg.selectAll('.image')
-          .data(iter_data)
-          .join(
-              (enter) => {
-                  enter.append('svg:image')
-                      .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('class', 'image')
-                      .attr('width', '30px')
-                      .attr('height', '30px')
-                      .attr('z-index','500')
-                      .attr('visibility','visible')
-                      .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
-                      .attr('y', height - 27)
+    // increase iteration count
+    count++;
+    // if we've got to the end of the data, stop running
+    if(count > data.length) {
+        t.stop();
+    }
+
+    // update the domains for the scales
+    yScale.domain([0, d3.max(iter_data, (d) => d.value)]);
+
+    // If the _button variable is not equal to '' then it is equal to 'births_deaths'
+    // That means we want to create a graph for births and deaths so we need functionality for 2 rect elements
+    // for each nation selected to be represented in the graph
+    if (_button != '') {
+
+      // We can see here that we have d.country + ' ' + d.type insted of just d.country
+      xScale.domain(iter_data.map((d) => d.country + ' ' + d.type))
+          .range([margin.left, width - margin.right]);
+    
+          // add bars to the visualisation for each data element
+          svg.selectAll('rect')
+              .data(iter_data)
+              .join((enter) => {
+                  enter.append('rect')
+                      .attr('fill', (d) => bar_color(d.type))
+                      .attr('rx', '10')
+                      .attr('ry', '10')
+                      .attr('width', xScale.bandwidth)
+                      .attr('y', height - margin.top)
+                      .attr('height', 0)
+                      .attr('x', (d) => xScale(d.country + ' ' + d.type) )
                       .transition()
                       .duration(280)
-                      .attr('y', height - 27)
+                      .attr('y', (d) => yScale(d.value))
+                      .attr('height', (d) => height - margin.top - yScale(d.value));
               },
               (update) => {
                   update
                       .transition()
                       .duration(280)
-                      .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
-                      .attr('y', height - 27)
+                      .attr('y', (d) => yScale(d.value))
+                      .attr('width', xScale.bandwidth)
+                      .attr('height', (d) => height - margin.top - yScale(d.value))
+                      .attr('x', (d) => xScale(d.country + ' ' + d.type) );
               },
               (exit) => {
-                  exit.transition()
+                  exit
+                      .transition()
                       .duration(280)
-                      .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('y', height - 27)
+                      .attr('y', height-margin.top)
+                      .attr('height', 0)
                       .remove();
-              }
-          );
+              });
+              svg.selectAll('.label')
+              .data(iter_data)
+              .join(
+                  (enter) => {
+                      enter.append('text')
+                          .attr('class', 'label')
+                          .attr('fill', 'black')
+                          .attr('text-anchor', 'middle')
+                          .attr('x', (d) => xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2)
+                          .attr('y', height - margin.top)
+                          .transition()
+                          .duration(280)
+                          .attr('y', (d) => yScale(d.value) - 5)
+                          .text((d) => number_display(d.value))
+                  },
+                  (update) => {
+                      update
+                          .transition()
+                          .duration(280)
+                          .attr('x', (d) => xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2)
+                          .attr('y', (d) => yScale(d.value) - 5)
+                          .text((d) => number_display(d.value))
+                  },
+                  (exit) => {
+                      exit.transition()
+                          .duration(280)
+                          .attr('y', height - margin.top)
+                          .remove();
+                  }
+              );
+        
+              svg.selectAll('.image')
+                  .data(iter_data)
+                  .join(
+                      (enter) => {
+                          enter.append('svg:image')
+                              // We point to the folder flags that contains the flags of all the countries
+                              .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
+                              .attr('class', 'image')
+                              .attr('width', '30px')
+                              .attr('height', '30px')
+                              .attr('z-index','500')
+                              .attr('visibility','visible')
+                              .attr('x', (d) => (xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2) - 15)
+                              .attr('y', height - 27)
+                              .transition()
+                              .duration(280)
+                              .attr('y', height - 27)
+                      },
+                      (update) => {
+                          update
+                              .transition()
+                              .duration(280)
+                              .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
+                              .attr('x', (d) => (xScale(d.country + ' ' + d.type) + xScale.bandwidth()/2) - 15)
+                              .attr('y', height - 27)
+                      },
+                      (exit) => {
+                          exit.transition()
+                              .duration(280)
+                              .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
+                              .attr('y', height - 27)
+                              .remove();
+                      }
+                  );
+    } else {
+      // Here we have the normal implementations of Dr.Chorley that creates a bar for every country
+      // It is used for the visualisation of the population
+
+      xScale.domain(iter_data.map((d) => d.country))
+          .range([margin.left, width - margin.right]);    
+    
+    // add bars to the visualisation for each data element
+    svg.selectAll('rect')
+        .data(iter_data)
+        .join((enter) => {
+            enter.append('rect')
+                .attr('fill', (d) => bar_color(d.type))
+                .attr('rx', '10')
+                .attr('ry', '10')
+                .attr('width', xScale.bandwidth)
+                .attr('y', height - margin.top)
+                .attr('height', 0)
+                .attr('x', (d) => xScale(d.country) )
+                .transition()
+                .duration(280)
+                .attr('y', (d) => yScale(d.value))
+                .attr('height', (d) => height - margin.top - yScale(d.value));
+        },
+        (update) => {
+            update
+                .transition()
+                .duration(280)
+                .attr('y', (d) => yScale(d.value))
+                .attr('width', xScale.bandwidth)
+                .attr('height', (d) => height - margin.top - yScale(d.value))
+                .attr('x', (d) => xScale(d.country) );
+        },
+        (exit) => {
+            exit
+                .transition()
+                .duration(280)
+                .attr('y', height-margin.top)
+                .attr('height', 0)
+                .remove();
+        });
+
+        svg.selectAll('.label')
+        .data(iter_data)
+        .join(
+            (enter) => {
+                enter.append('text')
+                    .attr('class', 'label')
+                    .attr('fill', 'black')
+                    .attr('text-anchor', 'middle')
+                    .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
+                    .attr('y', height - margin.top)
+                    .transition()
+                    .duration(280)
+                    .attr('y', (d) => yScale(d.value) - 5)
+                    .text((d) => number_display(d.value))
+            },
+            (update) => {
+                update
+                    .transition()
+                    .duration(280)
+                    .attr('x', (d) => xScale(d.country) + xScale.bandwidth()/2)
+                    .attr('y', (d) => yScale(d.value) - 5)
+                    .text((d) => number_display(d.value))
+            },
+            (exit) => {
+                exit.transition()
+                    .duration(280)
+                    .attr('y', height - margin.top)
+                    .remove();
+            }
+        );
+
+        svg.selectAll('.image')
+            .data(iter_data)
+            .join(
+                (enter) => {
+                    enter.append('svg:image')
+                        .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
+                        .attr('class', 'image')
+                        .attr('width', '30px')
+                        .attr('height', '30px')
+                        .attr('z-index','500')
+                        .attr('visibility','visible')
+                        .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
+                        .attr('y', height - 27)
+                        .transition()
+                        .duration(280)
+                        .attr('y', height - 27)
+                },
+                (update) => {
+                    update
+                        .transition()
+                        .duration(280)
+                        .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
+                        .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
+                        .attr('y', height - 27)
+                },
+                (exit) => {
+                    exit.transition()
+                        .duration(280)
+                        .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
+                        .attr('y', height - 27)
+                        .remove();
+                }
+            );
+    }
+    
+    svg.select('.x.axis')
+        .transition()
+        .duration(280)
+        .call(xaxis);
+
+    svg.select('.y.axis')
+        .transition()
+        .duration(280)
+        .call(yaxis);
   }
-  
-  svg.select('.x.axis')
-      .transition()
-      .duration(280)
-      .call(xaxis);
 
-  svg.select('.y.axis')
-      .transition()
-      .duration(280)
-      .call(yaxis);
-}
+  const play = async function(classname, start, number, dataset, _width, _height, d3interval, duration) {
+    document.getElementById("myBtn").disabled = true; 
+    document.getElementById("births_deaths").disabled = true; 
+    document.getElementById("population").disabled = true; 
+    document.getElementById("submit").disabled = true; 
+    document.getElementById("default").disabled = true; 
 
-const play = async function(classname, start, number, dataset, _width, _height, d3interval, duration) {
-  document.getElementById("myBtn").disabled = true; 
-  document.getElementById("births_deaths").disabled = true; 
-  // document.getElementById("births").disabled = true; 
-  // document.getElementById("deaths").disabled = true; 
-  document.getElementById("population").disabled = true; 
-  document.getElementById("submit").disabled = true; 
-  document.getElementById("default").disabled = true; 
+    create_svg(classname, _width, _height);
+    year = 2009;
 
-  create_svg(classname, _width, _height);
-  year = 2009;
+    document.getElementById("year").innerHTML = year;
+    year++;  
+    data = dataset[0];
+    update();
+    t = d3.interval(update, d3interval);
 
-  document.getElementById("year").innerHTML = year;
-  year++;  
-  // console.log(0);
-  // data = mydata[0].slice(start,number);
-  data = dataset[0];
-  console.log('data');
-  console.log(data);
-  update();
-  t = d3.interval(update, d3interval);
-
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(1);
-      // data = mydata[1].slice(start,number);
-      data = dataset[1];
-       
-      update();  
-    }
-  // }, 5000);
-    }, constant + duration * 1);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(2);
-      // data = mydata[2].slice(start,number);
-      data = dataset[2];
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 6500);
-    }, constant + duration * 2);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(3);
-      // data = mydata[3].slice(start,number);  
-      data = dataset[3];
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 8000);
-    }, constant + duration * 3);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(4);
-      // data = mydata[4].slice(start,number);  
-      data = dataset[4];
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 9500);
-    }, constant + duration * 4);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(5);
-      // data = mydata[5].slice(start,number);
-      data = dataset[5];
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 11000);
-    }, constant + duration * 5);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(6);
-      // data = mydata[6].slice(start,number); 
-      data = dataset[6]; 
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 12500);
-    }, constant + duration * 6);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(7);
-      // data = mydata[7].slice(start,number); 
-      data = dataset[7];   
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 14000);
-    }, constant + duration * 7);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(8);
-      // data = mydata[8].slice(start,number); 
-      data = dataset[8];
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 15500);
-    }, constant + duration * 8);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;  
-      // console.log(9);
-      // data = mydata[9].slice(start,number);  
-      data = dataset[9];
-      update();  
-    }
-    else {
-      return;
-    }
-  // }, 17000);
-    }, constant + duration * 9);
-  
-  setTimeout(() => {
-    if(year > 2009){   
-      document.getElementById("year").innerHTML = year;
-      year++;
-      // console.log(10);
-      // data = mydata[10].slice(start,number);  
-      data = dataset[10];
-      update();  
-    }
-    else {
-      return;
-    }
-    document.getElementById("myBtn").disabled = false; 
-    document.getElementById("births_deaths").disabled = false; 
-    // document.getElementById("births").disabled = false; 
-    // document.getElementById("deaths").disabled = false; 
-    document.getElementById("population").disabled = false; 
-    document.getElementById("submit").disabled = false; 
-    document.getElementById("default").disabled = false; 
-  // }, 18500);
-    }, constant + duration * 10);
-}
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[1];
+          
+          update();  
+        }
+      }, constant + duration * 1);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[2];
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 2);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;   
+          data = dataset[3];
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 3);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[4];
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 4);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[5];
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 5);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[6]; 
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 6);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[7];   
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 7);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[8];
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 8);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;  
+          data = dataset[9];
+          update();  
+        }
+        else {
+          return;
+        }
+      }, constant + duration * 9);
+    
+    setTimeout(() => {
+        if(year > 2009){   
+          document.getElementById("year").innerHTML = year;
+          year++;
+          data = dataset[10];
+          update();  
+        }
+        else {
+          return;
+        }
+        document.getElementById("myBtn").disabled = false; 
+        document.getElementById("births_deaths").disabled = false; 
+        document.getElementById("population").disabled = false; 
+        document.getElementById("submit").disabled = false; 
+        document.getElementById("default").disabled = false; 
+      }, constant + duration * 10);
+  }
 
 function changecolour(name){
   // names = ['births','deaths','population'];
@@ -846,16 +770,6 @@ document.getElementById("births_deaths").onclick = function() {
   document.getElementById("type").innerHTML = "Births & Deaths";
   buttonClicked('histogram', "births_deaths", births_deaths);
 };
-
-// document.getElementById("births").onclick = function() {
-//   document.getElementById("type").innerHTML = "Births";
-//   buttonClicked('histogram', "births", births);
-// };
-
-// document.getElementById("deaths").onclick = function() {
-//   document.getElementById("type").innerHTML = "Deaths";
-//   buttonClicked('histogram', "deaths", deaths);
-// };
 
 document.getElementById("population").onclick = function() {
   document.getElementById("type").innerHTML = "Population";
