@@ -304,6 +304,7 @@ const play = async function(classname, start, number, dataset, _width, _height, 
   document.getElementById("deaths").disabled = true; 
   document.getElementById("population").disabled = true; 
   document.getElementById("submit").disabled = true; 
+  document.getElementById("default").disabled = true; 
 
   create_svg(classname, _width, _height);
   year = 2009;
@@ -468,6 +469,7 @@ const play = async function(classname, start, number, dataset, _width, _height, 
     document.getElementById("deaths").disabled = false; 
     document.getElementById("population").disabled = false; 
     document.getElementById("submit").disabled = false; 
+    document.getElementById("default").disabled = false; 
   // }, 18500);
     }, constant + duration * 10);
 }
@@ -574,21 +576,29 @@ function default_countries(){
 function submit_countries(){
   dataset = [[],[],[],[],[],[],[],[],[],[],[]];
   countries = mydata[0];
-  indexes = [];
-
-  for (let index = 0; index < countries.length; index++) {
-    if (selected_countries.includes(countries[index].country)){
-      indexes.push(index);
-    }
-  }
 
   for (let i = 0; i < mydata.length; i++) {
     for (let j = 0; j < mydata[i].length; j++) {
-      if(indexes.includes(j)){
+      if(selected_countries.includes(mydata[i][j].country)){
         dataset[i].push(mydata[i][j]);
       }      
-    }    
+    }   
   }
+  console.log(dataset); 
+
+  replay_the_graph();
+}
+
+function replay_the_graph(){
+  checkWidth();
+  var list = document.getElementById("dashboard");
+  list.removeChild(list.childNodes[3]);
+  if (year < 2019) {
+    console.log(year);
+    year = 0;
+  }
+  year = 2009;
+  playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);  
 }
 
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
@@ -607,8 +617,6 @@ checkSlider();
 
 checkWidth();
 
-default_countries(1);
-
 document.getElementById("countries").onchange = function() {
   const sel = document.querySelectorAll('#countries option:checked');
   const values = Array.from(sel).map(el => el.value);
@@ -619,21 +627,24 @@ document.getElementById("submit").onclick = function() {
   submit_countries();
 }
 
+document.getElementById("default").onclick = function() {
+  replay_the_graph();
+}
+
 changecolour('population');
+
+default_countries(1);
 
 playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);
 
 
+document.getElementById("default").onclick = function() {
+  default_countries(1);
+  replay_the_graph();
+};
+
 document.getElementById("myBtn").onclick = function() {
-  checkWidth();
-  var list = document.getElementById("dashboard");
-  list.removeChild(list.childNodes[3]);
-  if (year < 2019) {
-    console.log(year);
-    year = 0;
-  }
-  year = 2009;
-  playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);  
+  replay_the_graph();
 };
 
 document.getElementById("births").onclick = function() {
