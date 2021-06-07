@@ -79,8 +79,6 @@ setTimeout(() => {
   // console.log(pop_80);
 // }, 500);
 
-
-
 function create_svg(classname, _width, _height) {
   width = _width;
   height = _height;
@@ -300,21 +298,21 @@ function update() {
       .call(yaxis);
 }
 
-const play = async function(classname, start, number, mydata, _width, _height, d3interval, duration) {
+const play = async function(classname, start, number, dataset, _width, _height, d3interval, duration) {
   document.getElementById("myBtn").disabled = true; 
   document.getElementById("births").disabled = true; 
   document.getElementById("deaths").disabled = true; 
   document.getElementById("population").disabled = true; 
-
-  constant = 3100;
+  document.getElementById("submit").disabled = true; 
 
   create_svg(classname, _width, _height);
   year = 2009;
 
   document.getElementById("year").innerHTML = year;
   year++;  
-  console.log(0);
-  data = mydata[0].slice(start,number);
+  // console.log(0);
+  // data = mydata[0].slice(start,number);
+  data = dataset[0];
 
   update();
   t = d3.interval(update, d3interval);
@@ -324,8 +322,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(1);
-      data = mydata[1].slice(start,number);
+      // console.log(1);
+      // data = mydata[1].slice(start,number);
+      data = dataset[1];
        
       update();  
     }
@@ -336,8 +335,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(2);
-      data = mydata[2].slice(start,number);
+      // console.log(2);
+      // data = mydata[2].slice(start,number);
+      data = dataset[2];
       update();  
     }
     else {
@@ -350,8 +350,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(3);
-      data = mydata[3].slice(start,number);  
+      // console.log(3);
+      // data = mydata[3].slice(start,number);  
+      data = dataset[3];
       update();  
     }
     else {
@@ -364,8 +365,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(4);
-      data = mydata[4].slice(start,number);  
+      // console.log(4);
+      // data = mydata[4].slice(start,number);  
+      data = dataset[4];
       update();  
     }
     else {
@@ -378,8 +380,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(5);
-      data = mydata[5].slice(start,number);
+      // console.log(5);
+      // data = mydata[5].slice(start,number);
+      data = dataset[5];
       update();  
     }
     else {
@@ -392,8 +395,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(6);
-      data = mydata[6].slice(start,number);  
+      // console.log(6);
+      // data = mydata[6].slice(start,number); 
+      data = dataset[6]; 
       update();  
     }
     else {
@@ -406,8 +410,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(7);
-      data = mydata[7].slice(start,number);    
+      // console.log(7);
+      // data = mydata[7].slice(start,number); 
+      data = dataset[7];   
       update();  
     }
     else {
@@ -420,8 +425,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(8);
-      data = mydata[8].slice(start,number); 
+      // console.log(8);
+      // data = mydata[8].slice(start,number); 
+      data = dataset[8];
       update();  
     }
     else {
@@ -434,8 +440,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;  
-      console.log(9);
-      data = mydata[9].slice(start,number);  
+      // console.log(9);
+      // data = mydata[9].slice(start,number);  
+      data = dataset[9];
       update();  
     }
     else {
@@ -448,8 +455,9 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     if(year > 2009){   
       document.getElementById("year").innerHTML = year;
       year++;
-      console.log(10);
-      data = mydata[10].slice(start,number);  
+      // console.log(10);
+      // data = mydata[10].slice(start,number);  
+      data = dataset[10];
       update();  
     }
     else {
@@ -459,10 +467,10 @@ const play = async function(classname, start, number, mydata, _width, _height, d
     document.getElementById("births").disabled = false; 
     document.getElementById("deaths").disabled = false; 
     document.getElementById("population").disabled = false; 
+    document.getElementById("submit").disabled = false; 
   // }, 18500);
     }, constant + duration * 10);
 }
-
 
 function changecolour(name){
   names = ['births','deaths','population']
@@ -486,47 +494,48 @@ function buttonClicked(classname, button, mylist){
   console.log(mylist);
   mydata = mylist;
   changecolour(button);
-  playgraph(classname, 1, number + 1, mydata, _width, _height, d3interval, duration);
+  playgraph(classname, 1, number + 1, dataset, _width, _height, d3interval, duration);
 }
 
-const playgraph = async function(classname, start, number, mydata, _width, _height, d3interval, duration){
-  const result = await play(classname, start, number, mydata, _width, _height, d3interval, duration);
+const playgraph = async function(classname, start, number, dataset, _width, _height, d3interval, duration){
+  const result = await play(classname, start, number, dataset, _width, _height, d3interval, duration);
 }
 
 function checkWidth(){
   let w = window.innerWidth;
   // let h = window.innerHeight;
   if (w > 1500) {
-    _width = 1500;
+    _width = 1300;
     _height = 600;
-    number = 15;
-    d3interval = 200;
+    number = 10;
+    // d3interval = 300;
   } else if(w > 1200){
     _width = 1200;
     _height = 500;
-    number = 12;
-    d3interval = 250;
+    number = 9;
+    // d3interval = 380;
   } else if(w > 1000){
     _width = 1000;
     _height = 500;
-    number = 10;
-    d3interval = 300;
+    number = 8;
+    // d3interval = 430;
   } else if(w > 900){
     _width = 850;
     _height = 450;
-    number = 8;
-    d3interval = 370;
+    number = 6;
+    // d3interval = 580;
   } else if(w > 700){
     _width = 700;
     _height = 400;
-    number = 7;
-    d3interval = 430;
+    number = 5;
+    // d3interval = 700;
   } else {
     _width = 525;
     _height = 350;
-    number = 5;
-    d3interval = 600;
+    number = 4;
+    // d3interval = 850;
   }
+  d3interval = Math.round((constant - 100) / number);
   console.log(d3interval);
 }
 
@@ -543,6 +552,45 @@ function checkSlider(){
   }
 }
 
+function default_countries(){
+  dataset = [[],[],[],[],[],[],[],[],[],[],[]];
+  countries = mydata[0];
+
+  indexes = [];
+
+  for (let index = 1; index < number; index++) {    
+    indexes.push(index);
+  }
+
+  for (let i = 0; i < mydata.length; i++) {
+    for (let j = 0; j < mydata[i].length; j++) {
+      if(indexes.includes(j)){
+        dataset[i].push(mydata[i][j]);
+      }      
+    }    
+  }
+}
+
+function submit_countries(){
+  dataset = [[],[],[],[],[],[],[],[],[],[],[]];
+  countries = mydata[0];
+  indexes = [];
+
+  for (let index = 0; index < countries.length; index++) {
+    if (selected_countries.includes(countries[index].country)){
+      indexes.push(index);
+    }
+  }
+
+  for (let i = 0; i < mydata.length; i++) {
+    for (let j = 0; j < mydata[i].length; j++) {
+      if(indexes.includes(j)){
+        dataset[i].push(mydata[i][j]);
+      }      
+    }    
+  }
+}
+
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
 
 births = [births[0].year2009,births[1].year2010,births[2].year2011,births[3].year2012,births[4].year2013,births[5].year2014,births[6].year2015,births[7].year2016,births[8].year2017,births[9].year2018,births[10].year2019]
@@ -551,14 +599,30 @@ deaths = [deaths[0].year2009,deaths[1].year2010,deaths[2].year2011,deaths[3].yea
 
 mydata = population;
 
+selected_countries = []
+
+constant = 3600;
+
 checkSlider();
-// duration = 3000;
 
 checkWidth();
 
+default_countries(1);
+
+document.getElementById("countries").onchange = function() {
+  const sel = document.querySelectorAll('#countries option:checked');
+  const values = Array.from(sel).map(el => el.value);
+  selected_countries = values;
+}
+
+document.getElementById("submit").onclick = function() {
+  submit_countries();
+}
+
 changecolour('population');
 
-playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval, duration);
+playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);
+
 
 document.getElementById("myBtn").onclick = function() {
   checkWidth();
@@ -569,7 +633,7 @@ document.getElementById("myBtn").onclick = function() {
     year = 0;
   }
   year = 2009;
-  playgraph('histogram', 1, number + 1, mydata, _width, _height, d3interval, duration);  
+  playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);  
 };
 
 document.getElementById("births").onclick = function() {
