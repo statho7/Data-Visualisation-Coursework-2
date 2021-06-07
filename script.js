@@ -204,29 +204,29 @@ function update() {
                   enter.append('svg:image')
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
                       .attr('class', 'image')
-                      .attr('width', '40')
-                      .attr('height', '40')
+                      .attr('width', '30')
+                      .attr('height', '30')
                       .attr('z-index','500')
                       .attr('visibility','visible')
-                      .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
-                      .attr('y', height - 33)
+                      .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
+                      .attr('y', height - 30)
                       .transition()
                       .duration(280)
-                      .attr('y', height - 33)
+                      .attr('y', height - 30)
               },
               (update) => {
                   update
                       .transition()
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 20)
-                      .attr('y', height - 33)
+                      .attr('x', (d) => (xScale(d.country) + xScale.bandwidth()/2) - 15)
+                      .attr('y', height - 30)
               },
               (exit) => {
                   exit.transition()
                       .duration(280)
                       .attr("xlink:href", (d) => '/flags/' + d.country + '.jpg')
-                      .attr('y', height - 33)
+                      .attr('y', height - 30)
                       .remove();
               }
           );
