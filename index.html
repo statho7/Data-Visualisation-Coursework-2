@@ -95,62 +95,55 @@
         <p>In the next animated Visualisation you can see the progress of either the population, births or deaths of the EU countries through the years 2009 to 2019.</p>
         <p>There is an option to select which category to watch by clicking the appropriate button. There is also an option to replay the animation you just show.</p>
         <p>Depending on your screen resolution more or less countries will display with minimum of 5 and maximum of 15.</p>
-        <!-- <div class="row">
+
+        <div class="row gx-5">
             <div class="col">
-            </div>
-            <div class="col-10 justify-content-center">        
-                <div id="dashboard">
-                    <svg viewBox='0 0 750 500'></svg>
-                </div>
+                <button id="myBtn" type="button" class="btn btn-primary">Play</button>
+                <button id="births_deaths" type="button" class="btn btn-primary">Births & Deaths</button>
+                <button id="population" type="button" class="btn btn-success">Population</button>
             </div>
             <div class="col">
+                <select id="countries" width=300 style="width: 150px" size="4" multiple>
+                    <option value='Austria'>Austria</option>
+                    <option value='Belgium'>Belgium</option>
+                    <option value='Bulgaria'>Bulgaria</option>
+                    <option value='Croatia'>Croatia</option>
+                    <option value='Cyprus'>Cyprus</option>
+                    <option value='Czechia'>Czechia</option>
+                    <option value='Denmark'>Denmark</option>
+                    <option value='Estonia'>Estonia</option>
+                    <option value='Finland'>Finland</option>
+                    <option value='France'>France</option>
+                    <option value='Germany'>Germany</option>
+                    <option value='Greece'>Greece</option>
+                    <option value='Hungary'>Hungary</option>
+                    <option value='Ireland'>Ireland</option>
+                    <option value='Italy'>Italy</option>
+                    <option value='Latvia'>Latvia</option>
+                    <option value='Lithuania'>Lithuania</option>
+                    <option value='Luxembourg'>Luxembourg</option>
+                    <option value='Malta'>Malta</option>
+                    <option value='Netherlands'>Netherlands</option>
+                    <option value='Poland'>Poland</option>
+                    <option value='Portugal'>Portugal</option>
+                    <option value='Romania'>Romania</option>
+                    <option value='Slovakia'>Slovakia</option>
+                    <option value='Slovenia'>Slovenia</option>
+                    <option value='Spain'>Spain</option>
+                    <option value='Sweden'>Sweden</option>
+                    <option value='United Kingdom'>United Kingdom</option>
+                    <!-- <option value='European Union'>European Union</option> -->
+                </select>
             </div>
-        </div> -->
-        <div>
-            <button id="myBtn" type="button" class="btn btn-primary">Play</button>          
-            <button id="births_deaths" type="button" class="btn btn-primary">Births & Deaths</button>       
-            <!-- <button id="births" type="button" class="btn btn-outline-success">Births</button>
-            <button id="deaths" type="button" class="btn btn-outline-success">Deaths</button> -->
-            <button id="population" type="button" class="btn btn-success">Population</button>
-            <select id="countries" width=300 style="width: 150px" size="4" multiple>
-                <option value='Austria'>Austria</option>
-                <option value='Belgium'>Belgium</option>
-                <option value='Bulgaria'>Bulgaria</option>
-                <option value='Croatia'>Croatia</option>
-                <option value='Cyprus'>Cyprus</option>
-                <option value='Czechia'>Czechia</option>
-                <option value='Denmark'>Denmark</option>
-                <option value='Estonia'>Estonia</option>
-                <option value='Finland'>Finland</option>
-                <option value='France'>France</option>
-                <option value='Germany'>Germany</option>
-                <option value='Greece'>Greece</option>
-                <option value='Hungary'>Hungary</option>
-                <option value='Ireland'>Ireland</option>
-                <option value='Italy'>Italy</option>
-                <option value='Latvia'>Latvia</option>
-                <option value='Lithuania'>Lithuania</option>
-                <option value='Luxembourg'>Luxembourg</option>
-                <option value='Malta'>Malta</option>
-                <option value='Netherlands'>Netherlands</option>
-                <option value='Poland'>Poland</option>
-                <option value='Portugal'>Portugal</option>
-                <option value='Romania'>Romania</option>
-                <option value='Slovakia'>Slovakia</option>
-                <option value='Slovenia'>Slovenia</option>
-                <option value='Spain'>Spain</option>
-                <option value='Sweden'>Sweden</option>
-                <option value='United Kingdom'>United Kingdom</option>
-                <!-- <option value='European Union'>European Union</option> -->
-            </select>
-            <button id="submit" type="button" class="btn btn-primary">Submit countries</button>
-            <button id="default" type="button" class="btn btn-primary">Reset countries</button>
-            <!-- <div class="slidecontainer"> -->
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button id="submit" type="button" class="btn btn-primary">Submit countries</button>
+                <button id="default" type="button" class="btn btn-primary">Reset countries</button>
                 <input type="range" min="300" max="4500" value="1500" class="slider" id="myRange">
-                <!-- <p> -->
-                    Value: <span id="demo"></span>
-                <!-- </p> -->
-            <!-- </div> -->
+                Value: <span id="demo"></span>
+            </div>
         </div>
 
         <div id="dashboard">
