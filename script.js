@@ -345,22 +345,37 @@ setTimeout(() => {
         .call(yaxis);
   }
 
-  const play = async function(classname, start, number, dataset, _width, _height, d3interval, duration) {
+  // The function that performs the run through the time
+  const play = async function(classname, dataset, _width, _height, d3interval, duration) {
+    // When the animation begins all the button are disabled
+    // I did not had the time to develop a solution for pausing 
+    // this function so I decided to disable the buttons in order to
+    // prevent the user running it twice at the same time
+    // and creating problems
     document.getElementById("myBtn").disabled = true; 
     document.getElementById("births_deaths").disabled = true; 
     document.getElementById("population").disabled = true; 
     document.getElementById("submit").disabled = true; 
     document.getElementById("default").disabled = true; 
 
+    // Inside this function we create the svg
     create_svg(classname, _width, _height);
+
+    //The first year is 2009 in our datasets
     year = 2009;
 
+    // Display the in the h1 element wih id 'year'
     document.getElementById("year").innerHTML = year;
     year++;  
+
+    // Set as our data the first array of the dataset array variable
     data = dataset[0];
+    // Run the update() for these data
     update();
     t = d3.interval(update, d3interval);
 
+    // I did not had the time to implement a more dynamic solution so for every year 
+    // we have a setTimeout that changes the value of year, the data and runs the update()
     setTimeout(() => {
         if(year > 2009){   
           document.getElementById("year").innerHTML = year;
@@ -378,6 +393,8 @@ setTimeout(() => {
           data = dataset[2];
           update();  
         }
+        // In case of a problem with the variable year I just developed a return
+        // It was never used in my testing but added just in case
         else {
           return;
         }
@@ -477,6 +494,8 @@ setTimeout(() => {
         else {
           return;
         }
+
+        // We have run through all the years and now we enable the buttons again
         document.getElementById("myBtn").disabled = false; 
         document.getElementById("births_deaths").disabled = false; 
         document.getElementById("population").disabled = false; 
@@ -485,227 +504,238 @@ setTimeout(() => {
       }, constant + duration * 10);
   }
 
-function changecolour(name){
-  // names = ['births','deaths','population'];
-  names = ['births_deaths','population'];
-  document.getElementById(name).className = "btn btn-success";
-  for (let index = 0; index < names.length; index++) {
-    if (names[index] != name) {
-      document.getElementById(names[index]).className = "btn btn-outline-success";   
-    } 
-  }
-}
-
-function buttonClicked(classname, button, mylist){
-  mydata = mylist;
-  _button = button;
-  if (check){
-    checkWidth();
-    default_countries();
-  }
-  else{
-    submit_countries();
-  }
-
-  var list = document.getElementById("dashboard");
-  list.removeChild(list.childNodes[5]);
-  if (year < 2019) {
-    // console.log(year);
-    year = 0;
-  }
-  year = 2009;
-  // console.log(mylist);
-  changecolour(button);
-  playgraph(classname, 1, number + 1, dataset, _width, _height, d3interval, duration);
-}
-
-const playgraph = async function(classname, start, number, dataset, _width, _height, d3interval, duration){
-  const result = await play(classname, start, number, dataset, _width, _height, d3interval, duration);
-}
-
-function checkWidth(){
-  let w = window.innerWidth;
-  // let h = window.innerHeight;
-  if (w > 1500) {
-    _width = 1300;
-    _height = 500;
-    number = 10;
-    constant = 3000;
-    // d3interval = 300;
-  } else if (w > 1200){
-    _width = 1200;
-    _height = 475;
-    number = 9;
-    constant = 2700;
-    // d3interval = 380;
-  } else if (w > 1000){
-    _width = 1000;
-    _height = 450;
-    number = 8;
-    constant = 2500;
-    // d3interval = 430;
-  } else if (w > 900){
-    _width = 850;
-    _height = 400;
-    number = 6;
-    constant = 2000;
-    // d3interval = 580;
-  } else if (w > 700){
-    _width = 700;
-    _height = 375;
-    number = 5;
-    constant = 1800;
-    // d3interval = 700;
-  } else {
-    _width = 525;
-    _height = 350;
-    number = 4;
-    constant = 1500;
-    // d3interval = 850;
-  }
-  d3interval = Math.round((constant - 100) / number);
-  // console.log(d3interval);
-}
-
-function checkSlider(){
-  var slider = document.getElementById("myRange");
-  var output = document.getElementById("demo");
-  output.innerHTML = slider.value / 1000 + ' seconds';
-  duration = slider.value; // Display the default slider value
-
-  // Update the current slider value (each time you drag the slider handle)
-  slider.oninput = function() {
-    output.innerHTML = this.value / 1000 + ' seconds';
-    duration = this.value;
-  }
-}
-
-function default_countries(){
-  check = true;
-  
-  if (check){
-    checkWidth();
-  }
-
-  dataset = [[],[],[],[],[],[],[],[],[],[],[]];
-
-  indexes = [];
-  
-  if (_button == 'births_deaths'){
-    for (let index = 2; index < Math.round(number/2) * 2 + 2; index++) {   
-      if (index < 10) {      
-        indexes.push(index);     
-      } else if (index > 11 && index < 18){
-        indexes.push(index);  
-      } else if (index > 21){
-        indexes.push(index);  
-      }
+  // This function changes the colour of the 2 buttons for our 2 visualisations 
+  // so the user can understand at any time which graph she/he sees
+  function changecolour(name){
+    names = ['births_deaths','population'];
+    document.getElementById(name).className = "btn btn-success";
+    for (let index = 0; index < names.length; index++) {
+      if (names[index] != name) {
+        document.getElementById(names[index]).className = "btn btn-outline-success";   
+      } 
     }
   }
-  else{
-    for (let index = 1; index < number; index++) {    
-      indexes.push(index);
+
+  // This functions performes functionality whenever the Births&Deaths or Population buttons are clicked
+  function buttonClicked(classname, button, mylist){
+    mydata = mylist;
+    _button = button;
+    if (check){
+      checkWidth();
+      default_countries();
     }
-  }  
+    else{
+      submit_countries();
+    }
 
-  for (let i = 0; i < mydata.length; i++) {
-    for (let j = 0; j < mydata[i].length; j++) {
-      if(indexes.includes(j)){
-        dataset[i].push(mydata[i][j]);
-      }      
-    }    
+    // With the next 2 lines of code we remove the svg
+    // that already exists
+    var list = document.getElementById("dashboard");
+    list.removeChild(list.childNodes[5]);
+    year = 2009;
+    changecolour(button);
+    playgraph(classname, dataset, _width, _height, d3interval, duration);
   }
-  console.log(dataset);
-}
 
-function submit_countries(){
-  check = false;
-  dataset = [[],[],[],[],[],[],[],[],[],[],[]];
-
-  for (let i = 0; i < mydata.length; i++) {
-    for (let j = 0; j < mydata[i].length; j++) {
-      if(selected_countries.includes(mydata[i][j].country)){
-        dataset[i].push(mydata[i][j]);
-      }      
-    }   
+  const playgraph = async function(classname, dataset, _width, _height, d3interval, duration){
+    const result = await play(classname, dataset, _width, _height, d3interval, duration);
   }
-  // console.log(dataset); 
 
-  if (_button != '') {
-    number = selected_countries.length * 2;
-  
-    if (number > 20) {
-      _width = 2850;
-      constant = 5000;
-    } else if(number > 15){
-      _width = 2300;
-      constant = 4000;
-    } else if(number > 10){
-      _width = 1950;
-      constant = 3000;
-    } else if(number > 8){
-      _width = 1750;
-      constant = 2000;
-    } else if(number > 6){
+  // Function that checks the width of the screen and adjust the
+  // width, height of the svg. Also it sets the number of countries that will
+  // be represented in the graph and the constant variable. The constant
+  // is the time that the graph will wait for all the bars of the year 2009 to be created
+  function checkWidth(){
+    let w = window.innerWidth;
+    if (w > 1500) {
       _width = 1300;
-      constant = 1800;
-    }else if(number > 4){
-      _width = 900;
-      constant = 1800;
-    } else {
-      _width = 650;
-      constant = 1500;
-    }
-  } else {
-    number = selected_countries.length;
-    if (number > 20) {
-      _width = 2500;
-      constant = 5000;
-    } else if(number > 15){
-      _width = 2100;
-      constant = 4000;
-    } else if(number > 10){
-      _width = 1600;
+      _height = 500;
+      number = 10;
       constant = 3000;
-    } else if(number > 8){
-      _width = 1300;
-      constant = 2000;
-    } else if(number > 5){
+    } else if (w > 1200){
+      _width = 1200;
+      _height = 475;
+      number = 9;
+      constant = 2700;
+    } else if (w > 1000){
+      _width = 1000;
+      _height = 450;
+      number = 8;
+      constant = 2500;
+    } else if (w > 900){
       _width = 850;
+      _height = 400;
+      number = 6;
+      constant = 2000;
+    } else if (w > 700){
+      _width = 700;
+      _height = 375;
+      number = 5;
       constant = 1800;
     } else {
       _width = 525;
+      _height = 350;
+      number = 4;
       constant = 1500;
+    }
+
+    // the d3interval used in the update() function
+    d3interval = Math.round((constant - 100) / number);
+  }
+
+  // This function checks the slider for the duration that the animation will stop for each year
+  function checkSlider(){
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value / 1000 + ' seconds';
+    duration = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+      output.innerHTML = this.value / 1000 + ' seconds';
+      duration = this.value;
     }
   }
 
-  if(selected_countries.includes('United Kingdom')){
-    _width = _width + 150;
-  }
-  
-  d3interval = Math.round((constant - 100) / number);
+  // Function for dislaying the default countries I chose to display at the initiation of the svg
+  function default_countries(){
+    check = true;
+    
+    if (check){
+      checkWidth();
+    }
 
-  check = false;
-}
+    dataset = [[],[],[],[],[],[],[],[],[],[],[]];
 
-function replay_the_graph(){
-  
-  if (check){
-    checkWidth();
-    default_countries();
+    indexes = [];
+    
+    // If the condition is true we have to add the births and deaths 
+    // to one array instead of having two seperate. To do that we use 
+    // the indexes of the births array as base.
+    if (_button == 'births_deaths'){
+      for (let index = 2; index < Math.round(number/2) * 2 + 2; index++) {   
+        if (index < 10) {      
+          indexes.push(index);     
+        } else if (index > 11 && index < 18){
+          indexes.push(index);  
+        } else if (index > 21){
+          indexes.push(index);  
+        }
+      }
+    }
+    else{
+      for (let index = 1; index < number; index++) {    
+        indexes.push(index);
+      }
+    }  
+
+    // Creation of the dataset used for the svg
+    for (let i = 0; i < mydata.length; i++) {
+      for (let j = 0; j < mydata[i].length; j++) {
+        if(indexes.includes(j)){
+          dataset[i].push(mydata[i][j]);
+        }      
+      }    
+    }
   }
-  else{
-    submit_countries();
+
+  // Almost same functionality with the default_countries()
+  // This is called when the user decides to expiriment with her/his own
+  // selection of countries
+  function submit_countries(){
+    check = false;
+    dataset = [[],[],[],[],[],[],[],[],[],[],[]];
+
+    for (let i = 0; i < mydata.length; i++) {
+      for (let j = 0; j < mydata[i].length; j++) {
+        if(selected_countries.includes(mydata[i][j].country)){
+          dataset[i].push(mydata[i][j]);
+        }      
+      }   
+    }
+
+    // Changing the width and constant of the CheckWidth()
+    // As there is a high possibility for the graph to be too small and the name of the countries
+    // overlaping one another if we do not take into consideration
+    // how many countries the user selected
+    if (_button != '') {
+      number = selected_countries.length * 2;
+    
+      if (number > 20) {
+        _width = 2850;
+        constant = 5000;
+      } else if(number > 15){
+        _width = 2300;
+        constant = 4000;
+      } else if(number > 10){
+        _width = 1950;
+        constant = 3000;
+      } else if(number > 8){
+        _width = 1750;
+        constant = 2000;
+      } else if(number > 6){
+        _width = 1300;
+        constant = 1800;
+      }else if(number > 4){
+        _width = 900;
+        constant = 1800;
+      } else {
+        _width = 650;
+        constant = 1500;
+      }
+    } else {
+      number = selected_countries.length;
+      if (number > 20) {
+        _width = 2500;
+        constant = 5000;
+      } else if(number > 15){
+        _width = 2100;
+        constant = 4000;
+      } else if(number > 10){
+        _width = 1600;
+        constant = 3000;
+      } else if(number > 8){
+        _width = 1300;
+        constant = 2000;
+      } else if(number > 5){
+        _width = 850;
+        constant = 1800;
+      } else {
+        _width = 525;
+        constant = 1500;
+      }
+    }
+
+    // Add additional width as the United Kingdom name overlaps other country's name
+    if(selected_countries.includes('United Kingdom')){
+      _width = _width + 150;
+    }
+    
+    d3interval = Math.round((constant - 100) / number);
+
+    check = false;
   }
-  var list = document.getElementById("dashboard");
-  list.removeChild(list.childNodes[5]);
-  if (year < 2019) {
-    // console.log(year);
-    year = 0;
+
+  // Function that replays the same category of animation (births & deaths or population)
+  // It also adapts to a possible change of selected countries
+  function replay_the_graph(){
+    
+    if (check){
+      checkWidth();
+      default_countries();
+    }
+    else{
+      submit_countries();
+    }
+    var list = document.getElementById("dashboard");
+    list.removeChild(list.childNodes[5]);
+    if (year < 2019) {
+      // console.log(year);
+      year = 0;
+    }
+    year = 2009;
+    playgraph('histogram', dataset, _width, _height, d3interval, duration);
   }
-  year = 2009;
-  playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);
-}
 
 population = [population[0].year2009,population[1].year2010,population[2].year2011,population[3].year2012,population[4].year2013,population[5].year2014,population[6].year2015,population[7].year2016,population[8].year2017,population[9].year2018,population[10].year2019]
 
@@ -721,6 +751,7 @@ countries = mydata[0];
 
 births_deaths = [[],[],[],[],[],[],[],[],[],[],[]]
 
+// Creation of the mixed array for births and deaths
 for (let index = 0; index < births.length; index++) {
   for (let j = 1; j < births[index].length+1; j++) {
     births_deaths[index][j*2-2] = births[index][j-1];
@@ -732,6 +763,7 @@ for (let index = 0; index < births.length; index++) {
   }    
 }
 
+// 767 to 781 runs the default visualisation for population
 document.getElementById("type").innerHTML = "Population";
 
 check = true;
@@ -746,8 +778,8 @@ changecolour('population');
 
 default_countries(1);
 
-playgraph('histogram', 1, number + 1, dataset, _width, _height, d3interval, duration);
-
+playgraph('histogram', dataset, _width, _height, d3interval, duration);
+//
 document.getElementById("countries").onchange = function() {
   const sel = document.querySelectorAll('#countries option:checked');
   const values = Array.from(sel).map(el => el.value);
