@@ -135,10 +135,10 @@ setTimeout(() => {
                       .attr('fill', (d) => bar_color(d.type))
                       .attr('rx', '10')
                       .attr('ry', '10')
-                      .attr('width', xScale.bandwidth)
+                      .attr('width', xScale.bandwidth() / 1.25)
                       .attr('y', height - margin.top)
                       .attr('height', 0)
-                      .attr('x', (d) => xScale(d.country + ' ' + d.type) )
+                      .attr('x', (d) => xScale(d.country + ' ' + d.type) + xScale.bandwidth() * 0.1)
                       .transition()
                       .duration(280)
                       .attr('y', (d) => yScale(d.value))
@@ -149,9 +149,9 @@ setTimeout(() => {
                       .transition()
                       .duration(280)
                       .attr('y', (d) => yScale(d.value))
-                      .attr('width', xScale.bandwidth)
+                      .attr('width', xScale.bandwidth() / 1.25)
                       .attr('height', (d) => height - margin.top - yScale(d.value))
-                      .attr('x', (d) => xScale(d.country + ' ' + d.type) );
+                      .attr('x', (d) => xScale(d.country + ' ' + d.type) + xScale.bandwidth() * 0.1);
               },
               (exit) => {
                   exit
@@ -241,10 +241,10 @@ setTimeout(() => {
                 .attr('fill', (d) => bar_color(d.type))
                 .attr('rx', '10')
                 .attr('ry', '10')
-                .attr('width', xScale.bandwidth)
+                .attr('width', xScale.bandwidth() / 1.25)
                 .attr('y', height - margin.top)
                 .attr('height', 0)
-                .attr('x', (d) => xScale(d.country) )
+                .attr('x', (d) => xScale(d.country) + xScale.bandwidth() * 0.1 )
                 .transition()
                 .duration(280)
                 .attr('y', (d) => yScale(d.value))
@@ -255,9 +255,9 @@ setTimeout(() => {
                 .transition()
                 .duration(280)
                 .attr('y', (d) => yScale(d.value))
-                .attr('width', xScale.bandwidth)
+                .attr('width', xScale.bandwidth() / 1.25)
                 .attr('height', (d) => height - margin.top - yScale(d.value))
-                .attr('x', (d) => xScale(d.country) );
+                .attr('x', (d) => xScale(d.country) + xScale.bandwidth() * 0.1 );
         },
         (exit) => {
             exit
@@ -573,7 +573,7 @@ setTimeout(() => {
       number = 5;
       constant = 1800;
     } else {
-      _width = 525;
+      _width = 475;
       _height = 350;
       number = 4;
       constant = 1500;
@@ -624,7 +624,7 @@ setTimeout(() => {
       }
     }
     else{
-      for (let index = 1; index < number; index++) {    
+      for (let index = 1; index < number + 1; index++) {    
         indexes.push(index);
       }
     }  
